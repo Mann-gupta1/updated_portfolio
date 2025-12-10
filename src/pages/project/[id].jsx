@@ -566,7 +566,7 @@ const ProjectDetails = ({ initialProjectIndex = null }) => {
                             className="space-y-8 flex flex-col lg:flex-row justify-between w-full gap-8 lg:gap-12"
                         >
                             {/* Project Description */}
-                            <div className="space-y-4 w-full lg:w-1/2 flex flex-col gap-4">
+                            <div className="w-full lg:w-1/2">
                                 <p className="text-base md:text-lg leading-relaxed font-cabinetGrotesk">
                                     <WordAnimation 
                                         text={project.description || `Being part of the ${project.title} creative team, I contributed to numerous digital projects. My responsibilities involved designing engaging content for websites, mobile applications, and marketing campaigns. With a focus on user experience and modern design principles, I worked on both primary platforms and microsites, utilizing cutting-edge technologies for each implementation, while also creating content for various channels and social media.`}
@@ -575,15 +575,22 @@ const ProjectDetails = ({ initialProjectIndex = null }) => {
                                         tag="span"
                                     />
                                 </p>
-                                {project.Link && project.Link !== "#" && (
-                                    <div className="isolate flex justify-start" style={{ contain: 'layout style paint' }}>
+                                <div className="isolate flex flex-wrap gap-4 justify-start mt-6" style={{ contain: 'layout style paint' }}>
+                                    {project.Link && project.Link !== "#" && (
                                         <ButtonNew 
                                             text="Live Website" 
                                             link={project.Link}
                                             className="project-button"
                                         />
-                                    </div>
-                                )}
+                                    )}
+                                    {project.github && project.github !== "#" && (
+                                        <ButtonNew 
+                                            text="GitHub" 
+                                            link={project.github}
+                                            className="project-button"
+                                        />
+                                    )}
+                                </div>
                             </div>
 
                             <div className="justify-start flex flex-col gap-4 w-full lg:w-auto">
@@ -784,26 +791,38 @@ const ProjectDetails = ({ initialProjectIndex = null }) => {
                                 </div>
                             </div>
 
-                            {/* Mobile - ProjectCard Grid */}
+                            {/* Mobile - List Format (matching desktop style) */}
                             <div className="block md:hidden">
-                                <div className="grid grid-cols-1 gap-8">
+                                <div className="flex flex-col">
                                     {worksObj
                                         .filter((_, index) => index !== project.index)
                                         .slice(0, 6)
-                                        .map((otherProject, index) => (
-                                            <motion.div
-                                                key={index}
-                                                initial={{ opacity: 0, y: 50 }}
-                                                whileInView={{ opacity: 1, y: 0 }}
-                                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                                viewport={{ once: true }}
-                                            >
-                                                <ProjectCard 
-                                                    project={otherProject}
-                                                    index={index}
-                                                />
-                                            </motion.div>
-                                        ))}
+                                        .map((otherProject, index) => {
+                                            const projectSlug = otherProject.slug || slugify(otherProject.title);
+                                            return (
+                                                <motion.div
+                                                    key={index}
+                                                    initial={{ opacity: 0, y: 20 }}
+                                                    whileInView={{ opacity: 1, y: 0 }}
+                                                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                                                    viewport={{ once: true }}
+                                                    className="relative"
+                                                >
+                                                    <Link href={`/project/${projectSlug}`}>
+                                                        <div className="flex items-center justify-between py-6 border-b border-black/10 hover:opacity-70 transition-opacity duration-200">
+                                                            <div className="flex-1">
+                                                                <h3 className="text-xl md:text-2xl font-semibold font-cabinetGrotesk text-black uppercase tracking-wide">
+                                                                    {otherProject.title}
+                                                                </h3>
+                                                            </div>
+                                                            <div className="ml-4 flex-shrink-0 text-black">
+                                                                <ArrowIcon />
+                                                            </div>
+                                                        </div>
+                                                    </Link>
+                                                </motion.div>
+                                            );
+                                        })}
                                 </div>
                             </div>
 
