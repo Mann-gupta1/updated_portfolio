@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mann-gupta-portfolio.vercel.app
+
+# Sitemaps
+Sitemap: https://mann-gupta-portfolio.vercel.app/sitemap.xml
