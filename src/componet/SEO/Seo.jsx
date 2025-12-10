@@ -4,7 +4,7 @@ const SEO = ({
   title = "Mann Gupta ",
   description = "Explore Mann Gupta's portfolio showcasing innovative software development projects, AI/ML solutions, and creative technical implementations.",
   image = "/default-image.jpg", // Replace with a valid image path
-  url = "https://gmann.vercel.app/",
+  url = "https://gmannn.netlify.app/",
 }) => {
   return (
     <Head>

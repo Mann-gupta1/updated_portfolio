@@ -27,7 +27,7 @@ const Home = () => {
         title="Mann Gupta | Portfolio"
         description="Explore Mann Gupta's portfolio showcasing innovative software development projects, AI/ML solutions, and creative technical implementations."
         image={me.src}
-        url="https://mann-gupta-portfolio.vercel.app/"
+        url="https://gmannn.netlify.app/"
       />
       <div className="home cursor-default bg-main relative flex flex-col overflow-y-hidden h-full">
         {/* <CursorMask /> */}

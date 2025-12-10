@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://mann-gupta-portfolio.vercel.app
+Host: https://gmannn.netlify.app
 
 # Sitemaps
-Sitemap: https://mann-gupta-portfolio.vercel.app/sitemap.xml
+Sitemap: https://gmannn.netlify.app/sitemap.xml

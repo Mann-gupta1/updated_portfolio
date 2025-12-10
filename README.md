@@ -20,7 +20,7 @@ A modern, interactive portfolio website showcasing my work as a Software Develop
 - **3D Graphics**: Three.js, React Three Fiber
 - **Icons**: Font Awesome
 - **Forms**: React Hook Form, EmailJS
-- **Deployment**: Vercel
+- **Deployment**: Netlify
 
 ## 📦 Installation
 
@@ -89,10 +89,10 @@ No environment variables are currently required for this project.
 
 ## 🚢 Deployment
 
-The easiest way to deploy is using [Vercel](https://vercel.com):
+The easiest way to deploy is using [Netlify](https://netlify.com):
 
 1. Push your code to GitHub
-2. Import your repository in Vercel
+2. Import your repository in Netlify
 3. Deploy!
 
 The project is configured with `next-sitemap` for automatic sitemap generation.
@@ -104,7 +104,7 @@ This project is private and proprietary.
 ## 👤 Author
 
 **Mann Gupta**
-- Portfolio: [mann-gupta-portfolio.vercel.app](https://mann-gupta-portfolio.vercel.app)
+- Portfolio: [gmannn.netlify.app](https://gmannn.netlify.app)
 - GitHub: [mann-gupta1](https://github.com/mann-gupta1)
 - LinkedIn: [gupta-mann](https://linkedin.com/in/gupta-mann)
 

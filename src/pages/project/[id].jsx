@@ -468,7 +468,7 @@ const ProjectDetails = ({ initialProjectIndex = null }) => {
                 title={`${project.title} | Project Details`}
                 description={`Explore the details of ${project.title}, a creative project showcasing modern web development and design.`}
                 image={project.img?.src || project.img}
-                url={`https://mann-gupta-portfolio.vercel.app/project/${project.slug || slugify(project.title)}`}
+                url={`https://gmannn.netlify.app/project/${project.slug || slugify(project.title)}`}
             />
 
             <div className="project-details font-cabinetGrotesk cursor-default  relative flex flex-col  ">
