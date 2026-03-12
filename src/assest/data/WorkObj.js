@@ -1,4 +1,114 @@
-const worksObj = [
+import { projectScreenshots } from './projectScreenshots';
+
+const worksObjRaw = [
+  {
+    slug: 'production-llm-customer-support-agent',
+    title: 'Production LLM Customer Support Agent',
+    time: 2024,
+    Subtitle: 'Chat + Voice Support Automation',
+    bg: 'bg-[#0d9488]',
+    Link: '#',
+    color: 'text-[#0d9488]',
+    description: 'Built an AI support agent handling chat and voice interactions. Used retrieval-augmented generation to reduce hallucinations. Added tool workflows for order lookup and support tickets.',
+    techStack: ['FastAPI', 'React', 'RAG', 'LLM', 'Redis', 'Docker', 'Whisper', 'TTS'],
+    role: 'Designed and built the end-to-end support automation system with safety and observability.',
+    keyResponsibilities: [
+      'Implemented intent detection, RAG retrieval, and tool routing (orders, refunds, tickets)',
+      'Built confidence estimation and human escalation for uncertain cases',
+      'Integrated chat and voice pipelines (STT/TTS) through the same orchestration layer',
+      'Added guardrails, metrics (latency, hallucination rate), and containerized deployment'
+    ]
+  },
+  {
+    slug: 'agentic-ai-system',
+    title: 'Agentic AI System',
+    time: 2024,
+    Subtitle: 'Multi-Agent Intelligence Framework',
+    bg: 'bg-[#64748b]',
+    Link: '#',
+    color: 'text-[#64748b]',
+    description: 'A modular multi-agent AI framework supporting reasoning, memory, and retrieval workflows.',
+    techStack: ['Python', 'Vector Search', 'TF-IDF', 'RAG'],
+    role: 'Designed agent responsibilities and coordination logic.',
+    keyResponsibilities: [
+      'Implemented reasoning and knowledge agents',
+      'Built vector-based memory recall mechanisms',
+      'Integrated document-grounded retrieval pipelines',
+      'Enabled multi-agent collaboration for complex queries'
+    ]
+  },
+  {
+    slug: 'quillgpt',
+    title: 'QuillGPT',
+    time: 2024,
+    Subtitle: 'Custom GPT Training Framework',
+    bg: 'bg-[#06b6d4]',
+    Link: '#',
+    color: 'text-[#06b6d4]',
+    description: 'Implemented a GPT-style decoder architecture in PyTorch. Trained domain-specific language models. Built a Streamlit interface for model interaction.',
+    techStack: ['PyTorch', 'FastAPI', 'Docker', 'Streamlit'],
+    role: 'Implemented model architecture and deployment pipeline.',
+    keyResponsibilities: [
+      'Built GPT decoder blocks with multi-head attention',
+      'Designed custom tokenization and serialization',
+      'Deployed inference APIs using FastAPI',
+      'Created an interactive Streamlit playground'
+    ]
+  },
+  {
+    slug: 'optiquery',
+    title: 'OptiQuery',
+    time: 2023,
+    Subtitle: 'Database Query Optimizer',
+    bg: 'bg-[#fb7185]',
+    Link: '#',
+    color: 'text-[#fb7185]',
+    description: 'A SQL query optimizer that transforms queries into efficient relational algebra execution plans.',
+    techStack: ['SQL', 'Relational Algebra', 'JavaScript', 'Data Structures'],
+    role: 'Implemented parsing, optimization, and visualization logic.',
+    keyResponsibilities: [
+      'Parsed SQL queries into relational algebra trees',
+      'Applied predicate pushdown and join reordering',
+      'Estimated execution costs before and after optimization',
+      'Visualized query plans and performance metrics'
+    ]
+  },
+  {
+    slug: 'medical-3d-learning-platform',
+    title: '3D Medical Learning Ecosystem',
+    time: 2024,
+    Subtitle: 'Medical EdTech Platform',
+    bg: 'bg-[#10b981]',
+    Link: '#',
+    color: 'text-[#10b981]',
+    description: 'A comprehensive 3D medical education platform with simulations, quizzes, and offline learning.',
+    techStack: ['React', 'Three.js', 'FastAPI', 'PostgreSQL', 'PWA'],
+    role: 'Architected the full learning and visualization system.',
+    keyResponsibilities: [
+      'Built interactive 3D anatomy and physiology simulations',
+      'Implemented adaptive testing and spaced revision logic',
+      'Designed offline-first PWA architecture',
+      'Structured verified MBBS and BAMS medical content'
+    ]
+  },
+  {
+    slug: 'sonnet-music-recommendation',
+    title: 'Sonnet',
+    time: 2024,
+    Subtitle: 'LLM-Based Recommendation Engine',
+    bg: 'bg-[#f97316]',
+    Link: '#',
+    color: 'text-[#f97316]',
+    description: 'A lyric-based song recommendation chatbot powered by vector similarity search and LLMs.',
+    techStack: ['LangChain', 'FAISS', 'Python', 'Streamlit'],
+    role: 'Built the recommendation and similarity search pipeline.',
+    keyResponsibilities: [
+      'Embedded large lyric datasets into FAISS vector stores',
+      'Implemented semantic similarity search',
+      'Integrated LLM-based intent understanding',
+      'Optimized response latency to under 3 seconds'
+    ]
+  },
   {
     slug: 'dsa-learning-platform',
     title: 'DSA Learning Platform',
@@ -7,7 +117,7 @@ const worksObj = [
     bg: 'bg-[#4f46e5]',
     Link: '#',
     color: 'text-[#4f46e5]',
-    description: 'An interactive platform for mastering Data Structures and Algorithms using live code execution, 2D/3D visualizations, and gamified learning.',
+    description: 'Built an interactive platform for learning algorithms. Supports multi-language code execution (Python, C++, JavaScript, Go). Includes an AI assistant for explaining solutions.',
     techStack: ['React', 'Three.js', 'D3.js', 'Node.js', 'Docker'],
     role: 'Designed and built the end-to-end interactive learning system.',
     keyResponsibilities: [
@@ -126,78 +236,6 @@ const worksObj = [
     ]
   },
   {
-    slug: 'agentic-ai-system',
-    title: 'Agentic AI System',
-    time: 2024,
-    Subtitle: 'Multi-Agent Intelligence Framework',
-    bg: 'bg-[#64748b]',
-    Link: '#',
-    color: 'text-[#64748b]',
-    description: 'A modular multi-agent AI framework supporting reasoning, memory, and retrieval workflows.',
-    techStack: ['Python', 'Vector Search', 'TF-IDF', 'RAG'],
-    role: 'Designed agent responsibilities and coordination logic.',
-    keyResponsibilities: [
-      'Implemented reasoning and knowledge agents',
-      'Built vector-based memory recall mechanisms',
-      'Integrated document-grounded retrieval pipelines',
-      'Enabled multi-agent collaboration for complex queries'
-    ]
-  },
-  {
-    slug: 'optiquery',
-    title: 'OptiQuery',
-    time: 2023,
-    Subtitle: 'Database Query Optimizer',
-    bg: 'bg-[#fb7185]',
-    Link: '#',
-    color: 'text-[#fb7185]',
-    description: 'A SQL query optimizer that transforms queries into efficient relational algebra execution plans.',
-    techStack: ['SQL', 'Relational Algebra', 'JavaScript', 'Data Structures'],
-    role: 'Implemented parsing, optimization, and visualization logic.',
-    keyResponsibilities: [
-      'Parsed SQL queries into relational algebra trees',
-      'Applied predicate pushdown and join reordering',
-      'Estimated execution costs before and after optimization',
-      'Visualized query plans and performance metrics'
-    ]
-  },
-  {
-    slug: 'sonnet-music-recommendation',
-    title: 'Sonnet',
-    time: 2024,
-    Subtitle: 'LLM-Based Recommendation Engine',
-    bg: 'bg-[#f97316]',
-    Link: '#',
-    color: 'text-[#f97316]',
-    description: 'A lyric-based song recommendation chatbot powered by vector similarity search and LLMs.',
-    techStack: ['LangChain', 'FAISS', 'Python', 'Streamlit'],
-    role: 'Built the recommendation and similarity search pipeline.',
-    keyResponsibilities: [
-      'Embedded large lyric datasets into FAISS vector stores',
-      'Implemented semantic similarity search',
-      'Integrated LLM-based intent understanding',
-      'Optimized response latency to under 3 seconds'
-    ]
-  },
-  {
-    slug: 'quillgpt',
-    title: 'QuillGPT',
-    time: 2024,
-    Subtitle: 'Custom GPT Training Framework',
-    bg: 'bg-[#06b6d4]',
-    Link: '#',
-    color: 'text-[#06b6d4]',
-    description: 'A from-scratch GPT framework supporting training, inference, and interactive experimentation.',
-    techStack: ['PyTorch', 'FastAPI', 'Docker', 'Streamlit'],
-    role: 'Implemented model architecture and deployment pipeline.',
-    keyResponsibilities: [
-      'Built GPT decoder blocks with multi-head attention',
-      'Designed custom tokenization and serialization',
-      'Deployed inference APIs using FastAPI',
-      'Created an interactive Streamlit playground'
-    ]
-  },
-  {
     slug: 'space-mission-autonomy-system',
     title: 'SMAS',
     time: 2024,
@@ -214,26 +252,18 @@ const worksObj = [
       'Implemented hierarchical planners for thrust and gravity assists',
       'Built real-time 3D mission visualization using Three.js'
     ]
-  },
-  {
-    slug: 'medical-3d-learning-platform',
-    title: '3D Medical Learning Ecosystem',
-    time: 2024,
-    Subtitle: 'Medical EdTech Platform',
-    bg: 'bg-[#10b981]',
-    Link: '#',
-    color: 'text-[#10b981]',
-    description: 'A comprehensive 3D medical education platform with simulations, quizzes, and offline learning.',
-    techStack: ['React', 'Three.js', 'FastAPI', 'PostgreSQL', 'PWA'],
-    role: 'Architected the full learning and visualization system.',
-    keyResponsibilities: [
-      'Built interactive 3D anatomy and physiology simulations',
-      'Implemented adaptive testing and spaced revision logic',
-      'Designed offline-first PWA architecture',
-      'Structured verified MBBS and BAMS medical content'
-    ]
   }
 ];
+
+// Attach screenshots by slug: img = first image, galleryImages = all
+const worksObj = worksObjRaw.map((p) => {
+  const images = projectScreenshots[p.slug];
+  return {
+    ...p,
+    img: images?.[0] ?? null,
+    galleryImages: images && images.length ? images : null,
+  };
+});
 
 export { worksObj };
 export default worksObj;

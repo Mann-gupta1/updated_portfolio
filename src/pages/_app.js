@@ -66,6 +66,13 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
 
+  // Show Hello/Namaste greeting every time user lands on the home page (not only on first visit)
+  useEffect(() => {
+    if (router.pathname === '/') {
+      setIsLoading(true);
+    }
+  }, [router.pathname]);
+
   useEffect(() => {
     // Disable the default scroll restoration
     if (typeof window !== 'undefined') {

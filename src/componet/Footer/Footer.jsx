@@ -47,31 +47,26 @@ function Footer() {
       ],
     },
     {
-      title: "SOCIALS",
+      title: "CONTACT",
       links: [
         {
-          text: "Email",
+          text: "Email — manngupta923@gmail.com",
           link: "mailto:manngupta923@gmail.com",
           isSocaial: true,
         },
         {
-          text: "Linkdin",
+          text: "GitHub — github.com/Mann-gupta1",
+          link: "https://github.com/Mann-gupta1",
+          isSocaial: true,
+        },
+        {
+          text: "Portfolio — gmannn.netlify.app",
+          link: "https://gmannn.netlify.app",
+          isSocaial: true,
+        },
+        {
+          text: "LinkedIn",
           link: "https://linkedin.com/in/gupta-mann",
-          isSocaial: true,
-        },
-        {
-          text: "Whatsapp",
-          link: "https://wa.me/916266725150",
-          isSocaial: true,
-        },
-        {
-          text: "Github",
-          link: "https://github.com/mann-gupta1",
-          isSocaial: true,
-        },
-        {
-          text: "LeetCode",
-          link: "https://leetcode.com/m-g",
           isSocaial: true,
         },
       ],
@@ -217,7 +212,7 @@ function Footer() {
     <div className=" footerSection font-cabinetGrotesk    relative overflow-hidden z-[30] ">
       {/* curve */}
 
-      <div className=" w-[120%]  FooterCurve  absolute left-[50%] -top-[7rem]   transform  translate-x-[-50%]  lg:h-[30px] h-[15px]  z-50 ">
+      <div className="w-[120%] FooterCurve absolute left-[50%] -top-[5rem] sm:-top-[6rem] md:-top-[6.5rem] lg:-top-[7rem] transform translate-x-[-50%] h-[12px] sm:h-[15px] md:h-[20px] lg:h-[30px] z-50">
         <div
           style={{
             boxShadow: "  0px 60px 50px rgba(0,0,0,0.748) ",
@@ -228,19 +223,19 @@ function Footer() {
         </div>
       </div>
 
-      <div className=" font-cabinetGrotesk  h-[80vh] z-30 lg:h-[100vh] flex flex-col justify-between text-white  lg:pt-24   pt-[2rem]   px-[1rem] lg:px-[2rem]  relative bg-sec ">
-        <div className=" flex flex-col  lg:flex-row  justify-between w-full">
-          <div className=" flex    justify-between">
+      <div className=" font-cabinetGrotesk  h-[80vh] sm:h-[85vh] md:h-[90vh] z-30 lg:h-[100vh] flex flex-col justify-between text-white  lg:pt-24 pt-[2rem] sm:pt-[3rem] md:pt-[4rem] px-[1rem] sm:px-[1.5rem] md:px-[2rem] lg:px-[2rem] relative bg-sec ">
+        <div className=" flex flex-col lg:flex-row justify-between w-full gap-6 sm:gap-8 md:gap-10">
+          <div className=" flex flex-wrap sm:flex-nowrap justify-start sm:justify-between gap-4 sm:gap-6 md:gap-8">
             {/* links */}
-            <div className="lg:text-lg z-50 flex flex-wrap  lg:gap-10 gap-6">
+            <div className="lg:text-lg z-50 flex flex-wrap lg:gap-10 gap-4 sm:gap-6 md:gap-8 w-full sm:w-auto">
               {Links.map((item, index) => (
-                <div key={index} className="flex flex-col gap-2">
+                <div key={index} className="flex flex-col gap-2 min-w-[100px] sm:min-w-0">
                   <div className="overflow-hidden">
-                    <h1 className="Footertext opacity-50 text-sm">
+                    <h1 className="Footertext opacity-50 text-xs sm:text-sm">
                       {item.title}
                     </h1>
                   </div>
-                  <div className="flex gap-1 flex-col whitespace-nowrap leading-6">
+                  <div className="flex gap-1 flex-col leading-5 sm:leading-6">
                     {item.links?.map((linkItem, linkIndex) => (
                       <div key={linkIndex} className="overflow-hidden">
                         <Link
@@ -248,7 +243,7 @@ function Footer() {
                           target={linkItem?.isSocaial ? "_blank" : ""}
                           rel="noopener noreferrer"
                         >
-                          <h1 className="Footertext text-[0.95rem] cursor-pointer hover:text-gray-400 text-gray-300">
+                          <h1 className="Footertext text-[0.85rem] sm:text-[0.95rem] cursor-pointer hover:text-gray-400 text-gray-300 break-words">
                             <FlipLink>{linkItem.text}</FlipLink>
                           </h1>
                         </Link>
@@ -256,8 +251,8 @@ function Footer() {
                     ))}
                     {/* Render the infos section */}
                     {item.infos?.map((infoItem, infoIndex) => (
-                      <div key={infoIndex} className="  overflow-hidden">
-                        <p className="Footertext text-[0.95rem] ">
+                      <div key={infoIndex} className="overflow-hidden">
+                        <p className="Footertext text-[0.85rem] sm:text-[0.95rem] break-words">
                           {infoItem.p}
                         </p>
                       </div>
@@ -270,12 +265,12 @@ function Footer() {
           {/* <div className=" h-full w-full absolute top-0 right-0">
             <ShuffleModals />
           </div> */}
-          <div className="lg:flex-row lg:w-fit w-full  lg:px-0 px-[1rem] md:items-start items-center flex-col flex gap-5 pt-10">
-            <div className=" w-full">
+          <div className="lg:flex-row lg:w-fit w-full lg:px-0 px-0 sm:px-[1rem] md:items-start items-center flex-col flex gap-4 sm:gap-5 pt-6 sm:pt-8 md:pt-10">
+            <div className="w-full sm:w-auto lg:w-fit">
               <ButtonEffect
                 strength={3.5}
                 Style={
-                  "bg-sec lg:w-fit w-full hover:text-sec border-white hover:border-0 border-[1px] text-white"
+                  "bg-sec lg:w-fit w-full sm:w-auto hover:text-sec border-white hover:border-0 border-[1px] text-white text-sm sm:text-base"
                 }
               >
                 <a
@@ -287,11 +282,11 @@ function Footer() {
                 </a>
               </ButtonEffect>
             </div>
-            <div className=" w-full">
+            <div className="w-full sm:w-auto lg:w-fit">
               <ButtonEffect
                 strength={3.5}
                 Style={
-                  "bg-sec border-white lg:w-fit w-full hover:border-0 border-[1px] text-white"
+                  "bg-sec border-white lg:w-fit w-full sm:w-auto hover:border-0 border-[1px] text-white text-sm sm:text-base"
                 }
               >
                 <a href="mailto:manngupta923@gmail.com">
@@ -303,21 +298,21 @@ function Footer() {
         </div>
 
         {/* big text and robot */}
-        <div className="flex  flex-col items-center justify-center w-full relative">
+        <div className="flex flex-col items-center justify-center w-full relative">
 
           {/* Spline Robot */}
-          <div className=" hidden lg:block  absolute -top-[15em] scale-90 translate-x-1/2 right-1/2 lg:w-[450px] lg:h-[450px] w-[300px] h-[300px] rounded-lg">
+          <div className="hidden lg:block absolute -top-[15em] scale-90 translate-x-1/2 right-1/2 lg:w-[450px] lg:h-[450px] w-[300px] h-[300px] rounded-lg">
             <Spline
               scene="/scene (1).splinecode"
               style={{ width: '100%', height: '100%' }}
             />
           </div>
-          <div className="font-righteous  lg:leading-[28rem]  leading-[10rem] lg:text-[30rem] text-[8rem] flex flex-col text-center">
+          <div className="font-righteous leading-[6rem] sm:leading-[8rem] md:leading-[12rem] lg:leading-[28rem] text-[5rem] sm:text-[6rem] md:text-[10rem] lg:text-[30rem] flex flex-col text-center">
             {/* <div className="overflow-hidden mb-[1rem]">
               <h1 ref={nameRef} className="mann-text font-righteous ">MANN</h1>
             </div> */}
 
-            <h1 ref={nameRef} className="mann-text font-righteous -mb-[5rem] flex overflow-hidden">
+            <h1 ref={nameRef} className="mann-text font-righteous -mb-[2rem] sm:-mb-[3rem] md:-mb-[4rem] lg:-mb-[5rem] flex overflow-hidden">
               {text.split("").map((char, i) => (
                 <span key={i} className="char inline-block">
                   {char}
@@ -329,8 +324,8 @@ function Footer() {
 
         </div>
       </div>
-      <div className=" lg:block hidden">
-        <LogoWithText style={"absolute bottom-1 left-6"} />
+      <div className="hidden md:block">
+        <LogoWithText style={"absolute bottom-1 left-4 md:left-6"} />
       </div>
     </div>
   );

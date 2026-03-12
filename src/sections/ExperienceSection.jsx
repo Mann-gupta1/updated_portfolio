@@ -199,13 +199,13 @@ function ExperienceSection() {
     ScrollTrigger.create({
       trigger: contentRef.current,
       start: "top center",
-      end: "bottom center",
+      end: "bottom bottom",
       scrub: 1,
       markers: false,
       onUpdate: (self) => {
         const progress = self.progress;
         gsap.to(timelineProgress, {
-          height: `${progress * 93}%`,
+          height: `${progress * 100}%`,
           duration: 0.3,
           ease: "none"
         });
@@ -265,7 +265,7 @@ function ExperienceSection() {
     ScrollTrigger.create({
       trigger: contentRef.current,
       start: "top center",
-      end: "bottom center",
+      end: "bottom bottom",
       scrub: 1,
       markers: false,
       onUpdate: (self) => {
@@ -308,14 +308,14 @@ function ExperienceSection() {
         {/* Center Content Section */}
         <div
           ref={contentRef}
-          className="flex flex-col items-center w-full text-white lg:px-8 px-0 py-12 md:py-16 lg:py-24 relative"
+          className="flex flex-col items-center w-full text-white lg:px-8 px-0 pt-12 md:pt-16 lg:pt-24 pb-8 md:pb-10 lg:pb-12 relative"
         >
-          {/* SVG Line Animation */}
-          <div className="absolute lg:block hidden h-[200vh] top-[20rem] md:top-[25rem] lg:top-[30rem] lg:left-0 -left-44 w-full pointer-events-none z-[5]" style={{ height: `${paragraphData.length * 50}vh` }}>
+          {/* SVG Line Animation - height spans full section so rope reaches last item (GushWork) */}
+          <div className="absolute lg:block hidden top-[20rem] md:top-[25rem] lg:top-[30rem] lg:left-0 -left-44 w-full pointer-events-none z-[5]" style={{ height: `${paragraphData.length * 95}vh` }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-full h-full"
-              viewBox="0 0 1200 3000"
+              viewBox="0 0 1200 3200"
               fill="none"
               preserveAspectRatio="xMidYMin slice"
             >
@@ -346,7 +346,7 @@ function ExperienceSection() {
           </div>
 
           {/* Experience Timeline */}
-          <div className="w-full px-[1rem] md:px-[3rem] lg:px-[6rem] mb-10 md:mb-16 lg:mb-20 relative">
+          <div className="w-full px-[1rem] md:px-[3rem] lg:px-[6rem] mb-6 md:mb-8 lg:mb-10 relative">
             <div className="timeline-line absolute left-1/2 top-0 w-[1px]" style={{ height: '100%', transform: 'translateX(-50%)', backgroundColor: 'rgba(0, 0, 0, 0.2)' }}></div>
 
             <div
@@ -364,10 +364,11 @@ function ExperienceSection() {
               {paragraphData.map((exp, index) => {
                 const isLeft = index % 2 === 0;
 
+                const isLast = index === paragraphData.length - 1;
                 return (
                   <div
                     key={index}
-                    className="experience-item w-full flex items-center mb-[30vh] md:mb-[50vh] lg:mb-[80vh]"
+                    className={`experience-item w-full flex items-center ${isLast ? 'mb-10 md:mb-12 lg:mb-16' : 'mb-[30vh] md:mb-[50vh] lg:mb-[80vh]'}`}
                     data-index={index}
                   >
                     <div

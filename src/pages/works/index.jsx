@@ -11,6 +11,7 @@ import ScrollReveal from "../../componet/gsap/ScrollReveal";
 import Link from "next/link";
 import FlowingMenu from "../../componet/UI/FlowingMenu";
 import WordAnimation from "@/components/UI/WordAnimation";
+import { getProjectImageSrc } from "../../assest/utils/imageUrl";
 
 function Page() {
   const worksRef = useRef(null);
@@ -72,7 +73,7 @@ function Page() {
             <FlowingMenu height={100} items={worksObj.map(item => ({
               link: `/project/${item.slug}` || "#",
               text: item.title,
-              image: item.img?.src || item.img
+              image: item.img ? getProjectImageSrc(item.img) : null
             }))} />
           </div>
       </div>

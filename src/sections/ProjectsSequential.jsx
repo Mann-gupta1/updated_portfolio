@@ -5,10 +5,14 @@ import Link from "next/link";
 import { worksObj } from "../assest/data/WorkObj";
 import WordAnimation from "../components/UI/WordAnimation";
 import FlowingMenu from "../componet/UI/FlowingMenu";
+import { getProjectImageSrc } from "../assest/utils/imageUrl";
+
+const FEATURED_PROJECT_SLUGS = ['production-llm-customer-support-agent', 'dsa-learning-platform', 'quillgpt'];
 
 function ProjectsSequential() {
-  // Show only first 4 projects
-  const displayedProjects = worksObj ? worksObj.slice(0, 4) : [];
+  const displayedProjects = worksObj
+    ? worksObj.filter((p) => FEATURED_PROJECT_SLUGS.includes(p.slug))
+    : [];
 
   if (!worksObj || !Array.isArray(worksObj) || worksObj.length === 0) {
     return (
@@ -35,20 +39,20 @@ function ProjectsSequential() {
         </div>
 
         {/* Horizontal Flowing Menu for Projects */}
-        <div className="pt-10 pb-44 w-full">
+        <div className="pt-6 pb-8 w-full">
           <FlowingMenu 
             height={100} 
             items={displayedProjects.map(item => ({
               link: `/project/${item.slug}` || "#",
               text: item.title,
-              image: null // No images as requested
+              image: item.img ? getProjectImageSrc(item.img) : null
             }))} 
           />
         </div>
 
         {/* More Projects Button */}
-        {worksObj.length > 4 && (
-          <div className="flex justify-center items-center mt-16 md:mt-24">
+        {worksObj && worksObj.length > displayedProjects.length && (
+          <div className="flex justify-center items-center mt-8 md:mt-10">
             <Link
               href="/works"
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:gap-4 hover:scale-105 bg-black text-white"

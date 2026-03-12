@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import ProjectScreenshotImg from '../../componet/UI/ProjectScreenshotImg';
+import { getProjectImageSrc } from '../../assest/utils/imageUrl';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Navbar from '../../componet/Navbar';
@@ -50,8 +52,6 @@ const ProjectDetails = ({ initialProjectIndex = null }) => {
     const imageRef = useRef(null);
     const containerRef = useRef(null);
     const videoRef = useRef(null);
-
-    console.log(project?.galleryImages);
 
     const [viewMode, setViewMode] = useState(() => {
         // Set default based on screen size
@@ -548,7 +548,56 @@ const ProjectDetails = ({ initialProjectIndex = null }) => {
 
                 </div>
 
+                {/* Hero image – first screenshot */}
+                {(project.img || (project.galleryImages && project.galleryImages.length > 0)) && (
+                    <div
+                        ref={imageContainerRef}
+                        className="max-w-8xl mx-auto px-[1rem] lg:px-[2rem] mt-8 lg:mt-12"
+                    >
+                        <div
+                            ref={imageRef}
+                            className="relative w-full rounded-2xl overflow-hidden bg-gray-200 min-h-[280px]"
+                            style={{ aspectRatio: '16/10' }}
+                        >
+                            <ProjectScreenshotImg
+                                path={project.img || project.galleryImages?.[0] || ''}
+                                alt={project.title}
+                                className="w-full h-full object-cover object-top"
+                            />
+                            <div className="hidden absolute inset-0 flex items-center justify-center bg-gray-300 text-gray-500 text-sm p-4 text-center">
+                                Screenshot could not be loaded. Run <code className="bg-gray-400 px-1 rounded">npm run dev</code> so images copy to <code className="bg-gray-400 px-1 rounded">public/project_screenshot/</code>.
+                            </div>
+                        </div>
+                    </div>
+                )}
 
+                {/* Gallery – multiple screenshots with scroll animation */}
+                {project.galleryImages && project.galleryImages.length > 1 && (
+                    <div
+                        ref={sectionRef}
+                        className="max-w-8xl mx-auto px-[1rem] lg:px-[2rem] mt-16 lg:mt-24 pb-24"
+                    >
+                        <h2 className="font-cabinetGrotesk text-2xl md:text-3xl font-bold mb-8">
+                            Project snapshots
+                        </h2>
+                        <div className="flex flex-col md:flex-row flex-wrap gap-6 md:gap-8 justify-center items-stretch">
+                            {project.galleryImages.map((srcPath, i) => (
+                                <div
+                                    key={i}
+                                    className="scroll-img flex-1 min-w-[280px] max-w-full md:max-w-[calc(50%-1rem)] rounded-xl overflow-hidden shadow-lg bg-black/5"
+                                    style={{ minHeight: '240px' }}
+                                >
+                                    <ProjectScreenshotImg
+                                        path={srcPath}
+                                        alt={`${project.title} screenshot ${i + 1}`}
+                                        className="w-full h-full object-cover object-top"
+                                        style={{ minHeight: '240px' }}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
                 {/* Case Description Section */}
                 <div className="project-overview-section  lg:mt-24  mt-1 lg:mb-32 mb-12">
@@ -783,9 +832,9 @@ const ProjectDetails = ({ initialProjectIndex = null }) => {
                                         .filter((_, index) => index !== project.index)
                                         .slice(0, 6)
                                         .map(item => ({
-                                            link: `/project/${slugify(item.title)}`,
+                                            link: `/project/${item.slug || slugify(item.title)}`,
                                             text: item.title,
-                                            image: item.img?.src || item.img
+                                            image: item.img ? getProjectImageSrc(item.img) : null
                                         }))}
                                     />
                                 </div>

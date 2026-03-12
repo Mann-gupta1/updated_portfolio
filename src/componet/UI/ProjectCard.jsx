@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import ArrowIcon from '@/assest/Icons/ArrowIcon';
+import { getProjectImageSrc } from '@/assest/utils/imageUrl';
 
 const slugify = (text) => {
     if (!text) return '';
@@ -36,17 +37,35 @@ function ProjectCard({ project, index }) {
                 <div 
                     className="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 h-full backdrop-blur-sm"
                     style={{
-                        background: `linear-gradient(135deg, ${bgColor} 0%, ${bgColor}dd 100%)`,
+                        background: project.img ? 'transparent' : `linear-gradient(135deg, ${bgColor} 0%, ${bgColor}dd 100%)`,
                         border: `1px solid ${bgColor}40`
                     }}
                 >
-                    {/* Gradient overlay for depth */}
-                    <div 
-                        className="absolute inset-0 opacity-20"
-                        style={{
-                            background: `linear-gradient(135deg, transparent 0%, ${bgColor}80 100%)`
-                        }}
-                    />
+                    {/* Screenshot thumbnail when available */}
+                    {project.img && (
+                        <div className="absolute inset-0 z-0">
+                            <img
+                                src={getProjectImageSrc(project.img)}
+                                alt={project.title}
+                                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div 
+                                className="absolute inset-0 opacity-80"
+                                style={{
+                                    background: `linear-gradient(180deg, ${bgColor}40 0%, ${bgColor}ee 50%, ${bgColor} 100%)`
+                                }}
+                            />
+                        </div>
+                    )}
+                    {/* Gradient overlay when no image */}
+                    {!project.img && (
+                        <div 
+                            className="absolute inset-0 opacity-20"
+                            style={{
+                                background: `linear-gradient(135deg, transparent 0%, ${bgColor}80 100%)`
+                            }}
+                        />
+                    )}
                     
                     {/* Content */}
                     <div className="relative z-20 p-8 md:p-12">

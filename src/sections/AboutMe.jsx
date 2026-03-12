@@ -184,28 +184,40 @@ function AboutMe() {
         </div>
         {/* SVG Line - Outside overflow context */}
         <WordAnimation trigger=".About-me"
-          className=" z-[60] text-white text-xl leading-2 md:text-4xl lg:text-5xl text-center  lg:mb-4 pt-10  lg:max-w-6xl w-full mx-auto px-4"
+          className=" z-[60] text-white text-xl leading-relaxed md:text-2xl lg:text-3xl text-center lg:mb-6 pt-10 lg:max-w-4xl w-full mx-auto px-4"
           stagger={0.01}
           start="top center"
           end="bottom center"
-          text="I'm Mann — a Software Developer & AI/ML Developer crafting intelligent solutions that merge cutting-edge technology with practical applications."
+          text="I'm a backend and infrastructure engineer focused on building reliable systems and production-ready AI applications."
         />
-        {/* Subheading */}
         <WordAnimation trigger=".About-me"
-          className="text-white text-lg md:text-2xl lg:text-3xl text-center mb-1 max-w-5xl mx-auto px-4"
+          className="text-white text-base md:text-lg lg:text-xl text-center max-w-4xl mx-auto px-4 mb-4"
           stagger={0.01}
-          start="top 40%"
+          start="top 35%"
           end="bottom center"
-          text="I specialize in developing machine learning models, AI-driven solutions, and scalable software applications using technologies like Python, TensorFlow, Django, React, and cloud platforms." />
+          text="My experience includes migrating production services to Kubernetes, improving system observability, and developing LLM-powered tools that handle real user workflows."
+        />
+        <WordAnimation trigger=".About-me"
+          className="text-white text-base md:text-lg lg:text-xl text-center mb-12 max-w-4xl mx-auto px-4"
+          stagger={0.01}
+          start="top 30%"
+          end="bottom center"
+          text="I enjoy working on problems involving distributed systems, cloud infrastructure, and AI systems that need to operate reliably at scale."
+        />
 
-        {/* CTA Buttons */}
+        {/* Selected Impact */}
+        <div className="mb-16 max-w-2xl mx-auto px-4">
+          <h3 className="text-white/90 text-sm font-medium uppercase tracking-wider mb-4 text-center">Selected Impact</h3>
+          <ul className="text-white/95 text-base md:text-lg space-y-2 list-disc list-inside">
+            <li>Reduced infrastructure cost 50% using Kubernetes autoscaling.</li>
+            <li>Migrated 15+ microservices to Amazon EKS production environment.</li>
+            <li>Built LLM-powered support agent with RAG and tool workflows.</li>
+          </ul>
+        </div>
+
+        {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
           <ButtonNew text="About Me" link="/about-me" />
-          <ButtonNew 
-            text="Download CV" 
-            link="https://drive.google.com/uc?export=download&id=1he0Aq8VrHytDp5CDxD6_P4BozUOhOVmB"
-            download={true}
-          />
         </div>
 
 
@@ -318,18 +330,21 @@ function ServicesGrid() {
   const services = [
     {
       number: "01",
-      title: "Full-Stack Development",
-      description: "Architecting and building scalable, high-performance web systems using React, Next.js, TypeScript, Python, and Node.js, with robust backend services, secure APIs, distributed components, and clean, maintainable codebases.",
+      title: "Cloud & Infrastructure",
+      description: "Automating build, deployment, and monitoring pipelines using Docker, CI/CD workflows, and cloud-ready infrastructure, ensuring reproducible environments, high availability, and production-grade reliability.",
       icon: (
-        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="ml-2 mt-2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
-          <path d="M12 18L22 12L32 18L42 12V38L32 44L22 38L12 44V18Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M22 12V38M32 18V44" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+        <svg width="60" height="60" viewBox="0 0 64 64" fill="none" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
+          <circle cx="18" cy="18" r="6" stroke="currentColor" strokeWidth="2.5" />
+          <circle cx="46" cy="18" r="6" stroke="currentColor" strokeWidth="2.5" />
+          <circle cx="18" cy="46" r="6" stroke="currentColor" strokeWidth="2.5" />
+          <circle cx="46" cy="46" r="6" stroke="currentColor" strokeWidth="2.5" />
+          <path d="M24 18H40M24 46H40M18 24V40M46 24V40" stroke="currentColor" strokeWidth="2.5" />
         </svg>
       )
     },
     {
       number: "02",
-      title: "AI, Machine Learning",
+      title: "AI / Machine Learning",
       description: "Designing and implementing LLM-powered, deep learning, and reinforcement learning systems, including custom GPT models, RAG pipelines, multi-agent architectures, and physics-informed AI, optimized for real-world reasoning and autonomy.",
       icon: (
         <svg width="50" height="50" viewBox="0 0 64 64" fill="none" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
@@ -352,21 +367,18 @@ function ServicesGrid() {
     },
     {
       number: "04",
-      title: "DevOps & Deployment",
-      description: "Automating build, deployment, and monitoring pipelines using Docker, CI/CD workflows, and cloud-ready infrastructure, ensuring reproducible environments, high availability, and production-grade reliability.",
+      title: "Full-Stack Development",
+      description: "Architecting and building scalable, high-performance web systems using React, Next.js, TypeScript, Python, and Node.js, with robust backend services, secure APIs, distributed components, and clean, maintainable codebases.",
       icon: (
-        <svg width="60" height="60" viewBox="0 0 64 64" fill="none" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
-          <circle cx="18" cy="18" r="6" stroke="currentColor" strokeWidth="2.5" />
-          <circle cx="46" cy="18" r="6" stroke="currentColor" strokeWidth="2.5" />
-          <circle cx="18" cy="46" r="6" stroke="currentColor" strokeWidth="2.5" />
-          <circle cx="46" cy="46" r="6" stroke="currentColor" strokeWidth="2.5" />
-          <path d="M24 18H40M24 46H40M18 24V40M46 24V40" stroke="currentColor" strokeWidth="2.5" />
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="ml-2 mt-2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
+          <path d="M12 18L22 12L32 18L42 12V38L32 44L22 38L12 44V18Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M22 12V38M32 18V44" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )
     },
     {
       number: "05",
-      title: "Product Engineering ",
+      title: "Product Engineering",
       description: "Designing end-to-end education and knowledge platforms with gamification, adaptive learning, analytics, and offline-first support, delivering intuitive experiences for complex technical and scientific domains.",
       icon: (
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">

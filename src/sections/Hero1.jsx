@@ -1,18 +1,11 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import Socials from "./Socials.jsx";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import BackgroundVideo from "@/componet/BackgroundVideo";
-
-// Register ScrollTrigger plugin
-
-const animations = [
-  { text: "Hi!  i'm Mann", duration: 0.5, fontR: true },
-  { text: "Software Developer", duration: 0.5 },
-  { text: "AI/ML Developer. ", duration: 0.5 },
-  // Add more animations as needed
-];
+import ButtonNew from "@/componet/UI/ButtonNew";
 
 function Hero1() {
   const textRefs = useRef([]);
@@ -82,26 +75,38 @@ function Hero1() {
       {/* ------------------- */}
 
       <div className=" flex  lg:pl-0 pl-0  lg:-mt-[13rem] -mt-[40rem]  flex-col lg:flex-row justify-center items-center ">
-        {/* text */}
-        <div className=" flex flex-col  item lg:px-0  px-[1rem] text-black z-50 justify-center ">
-          {animations.slice(" ").map((animation, index) => (
-            <div style={{ clipPath: "polygon(0 0%, 100% 0%, 100% 100%, 0 100%)" }} className=" words overflow-hidden  lg:leading-[5.5rem] md:leading-[3.2rem] leading-[2.1rem] ">
-
-              <h1
-                key={index}
-                ref={(el) => (textRefs.current[index] = el)}
-                className={`${!animation.fontR
-                    ? "font-cabinetGrotesk text-[1.8rem] xs:text-[2.2rem] sm:text-[2.8rem] md:text-[3.5rem] lg:text-[4rem] xl:text-[6rem] pb-1 text-center"
-                    : " font-cabinetGrotesk text-[1.2rem] xs:text-[1.5rem] sm:text-[1.6rem] md:text-[1.65rem] lg:text-[1.7rem] text-center mb-1 lg:-mb-1"
-                  } word`}
-              >
-                {animation.text}
-              </h1>
-            </div>
-          ))}
-          {/* <p className="text-center text-black/70 text-lg mt-6 max-w-2xl mx-auto">
-            Crafting digital experiences that blend creativity with cutting-edge technology
-          </p> */}
+        {/* Minimal hero: headline, subline, impact, buttons only */}
+        <div className=" flex flex-col  item lg:px-0  px-[1rem] text-black z-50 justify-center text-center max-w-3xl mx-auto ">
+          <div style={{ clipPath: "polygon(0 0%, 100% 0%, 100% 100%, 0 100%)" }} className=" words overflow-hidden lg:leading-[3.5rem] md:leading-[2.8rem] leading-[2rem] ">
+            <h1 ref={(el) => (textRefs.current[0] = el)} className="font-cabinetGrotesk text-[1.6rem] xs:text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4.5rem] pb-2 word">
+              Backend & Infrastructure Engineer
+            </h1>
+          </div>
+          <p className="item font-cabinetGrotesk text-base sm:text-lg md:text-xl text-black/80 mt-3 word">
+            Building scalable cloud systems and production-ready AI services.
+          </p>
+          <p className="item font-cabinetGrotesk text-sm sm:text-base text-black/70 mt-2 mb-8 word">
+            Reduced infrastructure cost by 50% through Kubernetes autoscaling at WorkIndia.
+          </p>
+          <motion.div
+            className="item hero-buttons flex flex-wrap gap-3 sm:gap-4 justify-center word"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              visible: { transition: { staggerChildren: 0.08, delayChildren: 1.2 } },
+              hidden: {},
+            }}
+          >
+            <motion.div variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.4, ease: "easeOut" }} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="rounded-full ring-1 ring-black/20 hover:ring-black/40 transition-shadow">
+              <ButtonNew text="Download CV" link="https://drive.google.com/uc?export=download&id=1he0Aq8VrHytDp5CDxD6_P4BozUOhOVmB" download hideArrow className="!bg-black !text-white hover:!bg-black/90" />
+            </motion.div>
+            <motion.div variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.4, ease: "easeOut" }} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="rounded-full ring-1 ring-black/20 hover:ring-black/40 transition-shadow">
+              <ButtonNew text="GitHub" link="https://github.com/Mann-gupta1" hideArrow className="!bg-black !text-white hover:!bg-black/90" />
+            </motion.div>
+            <motion.div variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.4, ease: "easeOut" }} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="rounded-full ring-1 ring-black/20 hover:ring-black/40 transition-shadow">
+              <ButtonNew text="Contact" link="/contact" hideArrow className="!bg-black !text-white hover:!bg-black/90" />
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 

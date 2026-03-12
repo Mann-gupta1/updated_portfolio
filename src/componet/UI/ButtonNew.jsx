@@ -7,7 +7,8 @@ const ButtonNew = ({
   onClick,
   link,
   className = "",
-  download = false
+  download = false,
+  hideArrow = false,
 }) => {
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -52,48 +53,31 @@ const ButtonNew = ({
         <FlipLink isHovered={isHovered}>{text}</FlipLink>
       </button>
 
-      {/* Arrow Circle */}
-      <div
-  className="hidden md:flex w-14 h-14 bg-thr rounded-full items-center justify-center overflow-hidden relative"
->
-  {/* Arrow 1 – default, moves to top-right */}
-  <svg
-    className={`w-5 h-5 text-black absolute transition-all duration-300 ${
-      isHovered
-        ? "-translate-y-full translate-x-full opacity-0"
-        : "translate-y-0 translate-x-0 opacity-100"
-    }`}
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2.5}
-      d="M7 17L17 7M17 7H7M17 7v10"
-    />
-  </svg>
-
-  {/* Arrow 2 – comes from bottom-left */}
-  <svg
-    className={`w-5 h-5 text-black absolute transition-all duration-300 ${
-      isHovered
-        ? "translate-y-0 translate-x-0 opacity-100"
-        : "translate-y-full -translate-x-full opacity-0"
-    }`}
-    fill="none"
-    stroke="currentColor"
-    viewBox="0 0 24 24"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={2.5}
-      d="M7 17L17 7M17 7H7M17 7v10"
-    />
-  </svg>
-</div>
+      {/* Arrow Circle – hidden when hideArrow */}
+      {!hideArrow && (
+        <div className="hidden md:flex w-14 h-14 bg-thr rounded-full items-center justify-center overflow-hidden relative">
+          <svg
+            className={`w-5 h-5 text-black absolute transition-all duration-300 ${
+              isHovered ? "-translate-y-full translate-x-full opacity-0" : "translate-y-0 translate-x-0 opacity-100"
+            }`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 17L17 7M17 7H7M17 7v10" />
+          </svg>
+          <svg
+            className={`w-5 h-5 text-black absolute transition-all duration-300 ${
+              isHovered ? "translate-y-0 translate-x-0 opacity-100" : "translate-y-full -translate-x-full opacity-0"
+            }`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M7 17L17 7M17 7H7M17 7v10" />
+          </svg>
+        </div>
+      )}
     </div>
   );
 

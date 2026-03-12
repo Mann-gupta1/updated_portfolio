@@ -60,12 +60,12 @@ function Index() {
 
   const techCategories = [
     {
-      category: "Programming Languages",
-      techs: ["Python", "C++", "JavaScript", "TypeScript", "Go", "SQL"],
+      category: "Cloud and DevOps",
+      techs: ["Docker", "CI/CD Pipelines (GitHub, Bitbucket Actions)", "AWS (Deployment-Level Experience)", "Terraform", "Ansible"],
     },
     {
       category: "AI / Machine Learning",
-      techs: ["Deep Learning", "Reinforcement Learning", "Large Language Models", "Retrieval-Augmented Generation", "Computer Vision", "Natural Language Processing (NLP)", "Model Training, Inference, and Evaluation"],
+      techs: ["Deep Learning", "Reinforcement Learning", "Large Language Models", "Retrieval-Augmented Generation", "Computer Vision", "Natural Language Processing (NLP)", "Model Training, Inference, and Evaluation", "scikit-learn"],
     },
     {
       category: "Backend Development",
@@ -80,8 +80,8 @@ function Index() {
       techs: ["PostgreSQL", "MongoDB", "MySQL"],
     },
     {
-      category: "Cloud and DevOps",
-      techs: ["Docker", "CI/CD Pipelines (GitHub, Bitbucket Actions)", "AWS (Deployment-Level Experience)"],
+      category: "Programming Languages",
+      techs: ["Python", "C++", "JavaScript", "TypeScript", "Go", "SQL"],
     },
     {
       category: "Frameworks & Libraries",

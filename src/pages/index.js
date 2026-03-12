@@ -12,7 +12,8 @@ import SEO from "@/componet/SEO/Seo";
 import me from "../assest/Images/about/mannz-about-me.png";
 import ExperienceSection from "../sections/ExperienceSection";
 import ProjectsSequential from "../sections/ProjectsSequential";
-// import Testimonials from "@/sections/Testimonials";
+import ExperimentsSection from "../sections/ExperimentsSection";
+import TechStackSection from "../sections/TechStackSection";
 
 const Home = () => {
   useEffect(() => {
@@ -50,12 +51,27 @@ const Home = () => {
         {/* Projects Section */}
         <section id="projects-section" className="relative section-separator">
           <div className="w-full max-w-7xl mx-auto px-4">
-            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-16 md:my-24"></div>
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent mt-8 md:mt-10 mb-16 md:mb-24"></div>
           </div>
           <ProjectsSequential />
         </section>
+
+        {/* Experiments / Lab */}
+        <section className="experiments-section relative section-separator">
+          <div className="w-full max-w-7xl mx-auto px-4">
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-16 md:my-24"></div>
+          </div>
+          <ExperimentsSection />
+        </section>
+
+        {/* Tech Stack */}
+        <section className="techstack-section relative section-separator">
+          <div className="w-full max-w-7xl mx-auto px-4">
+            <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent my-16 md:my-24"></div>
+          </div>
+          <TechStackSection />
+        </section>
         
-        {/* <Testimonials /> */}
         <SlidingBars />
         {/* <FAQ /> */}
         <Footer />
