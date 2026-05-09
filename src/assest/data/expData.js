@@ -1,7 +1,7 @@
 export const paragraphData = [
   {
     companyName: "Workable",
-    role: "Software Engineer (Independent)",
+    role: "Software Engineer (Freelance)",
     color: "#8B5CF6",
     date: "Aug 2025 – Present",
     shortDesc: "Built a multimodal DAG execution engine processing 100+ jobs/day with retries and distributed fault tolerance.",
@@ -15,7 +15,7 @@ export const paragraphData = [
   },
   {
     companyName: "EduNexus",
-    role: "Software Engineer (Independent)",
+    role: "Software Engineer (Freelance)",
     color: "#10B981",
     date: "Aug 2025 – Present",
     shortDesc: "Architected a multi-tenant SaaS platform with strict RBAC isolation and live class streaming.",
@@ -29,7 +29,7 @@ export const paragraphData = [
   },
   {
     companyName: "Document Intelligence System",
-    role: "Software Engineer (Independent)",
+    role: "Software Engineer (Freelance)",
     color: "#F59E0B",
     date: "Aug 2025 – Present",
     shortDesc: "Designed high-throughput ingestion and hybrid search over 1000+ page PDFs with sub-second retrieval.",

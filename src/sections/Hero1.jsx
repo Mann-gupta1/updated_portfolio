@@ -98,7 +98,7 @@ function Hero1() {
             }}
           >
             <motion.div variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.4, ease: "easeOut" }} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="rounded-full ring-1 ring-black/20 hover:ring-black/40 transition-shadow">
-              <ButtonNew text="Download CV" link="https://drive.google.com/uc?export=download&id=1he0Aq8VrHytDp5CDxD6_P4BozUOhOVmB" download hideArrow className="!bg-black !text-white hover:!bg-black/90" />
+              <ButtonNew text="Download CV" link="https://drive.google.com/file/d/1DjJ4okUG3J1l_Vl4p81bmwA8Ru_ThPnT/view" hideArrow className="!bg-black !text-white hover:!bg-black/90" />
             </motion.div>
             <motion.div variants={{ hidden: { opacity: 0, y: 12 }, visible: { opacity: 1, y: 0 } }} transition={{ duration: 0.4, ease: "easeOut" }} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }} className="rounded-full ring-1 ring-black/20 hover:ring-black/40 transition-shadow">
               <ButtonNew text="GitHub" link="https://github.com/Mann-gupta1" hideArrow className="!bg-black !text-white hover:!bg-black/90" />
