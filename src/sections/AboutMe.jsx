@@ -188,30 +188,30 @@ function AboutMe() {
           stagger={0.01}
           start="top center"
           end="bottom center"
-          text="I'm a backend and infrastructure engineer focused on building reliable systems and production-ready AI applications."
+          text="I am a backend and AI engineer focused on production reliability and measurable product outcomes."
         />
         <WordAnimation trigger=".About-me"
           className="text-white text-base md:text-lg lg:text-xl text-center max-w-4xl mx-auto px-4 mb-4"
           stagger={0.01}
           start="top 35%"
           end="bottom center"
-          text="My experience includes migrating production services to Kubernetes, improving system observability, and developing LLM-powered tools that handle real user workflows."
+          text="I build end-to-end systems from distributed workflow engines and hybrid-search RAG pipelines to multi-tenant SaaS with real-time collaboration."
         />
         <WordAnimation trigger=".About-me"
           className="text-white text-base md:text-lg lg:text-xl text-center mb-12 max-w-4xl mx-auto px-4"
           stagger={0.01}
           start="top 30%"
           end="bottom center"
-          text="I enjoy working on problems involving distributed systems, cloud infrastructure, and AI systems that need to operate reliably at scale."
+          text="My work spans independent product delivery and production ownership at scale, with strong emphasis on secure architecture, performance, and operability."
         />
 
         {/* Selected Impact */}
         <div className="mb-16 max-w-2xl mx-auto px-4">
           <h3 className="text-white/90 text-sm font-medium uppercase tracking-wider mb-4 text-center">Selected Impact</h3>
           <ul className="text-white/95 text-base md:text-lg space-y-2 list-disc list-inside">
-            <li>Reduced infrastructure cost 50% using Kubernetes autoscaling.</li>
-            <li>Migrated 15+ microservices to Amazon EKS production environment.</li>
-            <li>Built LLM-powered support agent with RAG and tool workflows.</li>
+            <li>Processed 100+ multimodal jobs/day through a distributed DAG workflow engine.</li>
+            <li>Improved query relevance by ~40% in a document intelligence platform using hybrid search.</li>
+            <li>Cut cloud spend by ~50% with Kubernetes autoscaling across production services.</li>
           </ul>
         </div>
 
@@ -279,7 +279,7 @@ function AboutMe() {
                     lineHeight="0.8"
                     start="top 90%"
                     end="bottom center"
-                    text="Driving measurable growth and engagement through thoughtful design and engineering."
+                    text="Building resilient products through systems thinking and execution depth."
                   />
                   <div className="flex items-center">
                     <WordAnimation
@@ -288,7 +288,7 @@ function AboutMe() {
                       lineHeight="0.8"
                       start="top 90%"
                       end="bottom center"
-                      text="Every product I build starts with understanding user goals and translating them into intuitive, high-performance experiences. From concept to launch, I focus on meaningful results—boosting user engagement, retention, and overall business impact."
+                      text="I focus on reliability first: strong architecture, observability, and execution discipline. From prototype to production, I optimize for secure scaling, low latency, and clear product impact."
                     />
                   </div>
                 </div>
@@ -331,7 +331,7 @@ function ServicesGrid() {
     {
       number: "01",
       title: "Cloud & Infrastructure",
-      description: "Automating build, deployment, and monitoring pipelines using Docker, CI/CD workflows, and cloud-ready infrastructure, ensuring reproducible environments, high availability, and production-grade reliability.",
+      description: "Designing cloud-native systems with Kubernetes, autoscaling, and monitoring so services stay stable under load while keeping infrastructure costs controlled.",
       icon: (
         <svg width="60" height="60" viewBox="0 0 64 64" fill="none" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
           <circle cx="18" cy="18" r="6" stroke="currentColor" strokeWidth="2.5" />
@@ -345,7 +345,7 @@ function ServicesGrid() {
     {
       number: "02",
       title: "AI / Machine Learning",
-      description: "Designing and implementing LLM-powered, deep learning, and reinforcement learning systems, including custom GPT models, RAG pipelines, multi-agent architectures, and physics-informed AI, optimized for real-world reasoning and autonomy.",
+      description: "Building practical AI systems including RAG pipelines, embedding search, and LLM applications with evaluation and observability for consistent production quality.",
       icon: (
         <svg width="50" height="50" viewBox="0 0 64 64" fill="none" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
           <rect x="10" y="10" width="44" height="44" rx="6" stroke="currentColor" strokeWidth="2.5" />
@@ -357,7 +357,7 @@ function ServicesGrid() {
     {
       number: "03",
       title: "Backend Development",
-      description: "Engineering secure, maintainable backend architectures using FastAPI, Django, PostgreSQL, MongoDB, and GraphQL, with emphasis on performance optimization, structured data flows, and scalable system design.",
+      description: "Engineering robust backend services with async processing, queue orchestration, and secure data access patterns for scalable multi-user systems.",
       icon: (
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="mt-2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
           <path d="M32 10L46 18V38L32 46L18 38V18L32 10Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -367,8 +367,8 @@ function ServicesGrid() {
     },
     {
       number: "04",
-      title: "Full-Stack Development",
-      description: "Architecting and building scalable, high-performance web systems using React, Next.js, TypeScript, Python, and Node.js, with robust backend services, secure APIs, distributed components, and clean, maintainable codebases.",
+      title: "Real-time Systems",
+      description: "Delivering real-time product experiences with WebRTC, signaling, reconnection handling, and resilient session management for consistent live collaboration.",
       icon: (
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="ml-2 mt-2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
           <path d="M12 18L22 12L32 18L42 12V38L32 44L22 38L12 44V18Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -379,7 +379,7 @@ function ServicesGrid() {
     {
       number: "05",
       title: "Product Engineering",
-      description: "Designing end-to-end education and knowledge platforms with gamification, adaptive learning, analytics, and offline-first support, delivering intuitive experiences for complex technical and scientific domains.",
+      description: "Owning products end-to-end from architecture to delivery, with focus on tenant safety, authorization boundaries, analytics, and business-facing reporting workflows.",
       icon: (
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
           <path d="M32 10L42 16V28L32 34L22 28V16L32 10Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />

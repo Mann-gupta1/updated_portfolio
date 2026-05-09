@@ -22,16 +22,16 @@ function Index() {
 
   const Data = [
     {
-      skill: "Full-Stack Architecture",
-      p: "I architect end-to-end solutions using modern tech stacks—from Node.js backends with PostgreSQL/MongoDB to React and Next.js frontends. Whether building multi-tenant SaaS platforms, real-time dashboards with WebSockets, or RESTful APIs with tRPC, I ensure type-safe, scalable architecture that supports rapid growth and seamless deployment.",
+      skill: "Distributed Systems",
+      p: "I design and ship distributed backend systems with fault-tolerant execution, queue-based orchestration, and async processing. My focus is predictable behavior under load, safe retry strategies, and reliable runtime operations.",
     },
     {
-      skill: "AI & Advanced Integration",
-      p: "I specialize in integrating AI capabilities that deliver real value—implementing RAG systems with vector embeddings, building LangChain workflows, and connecting OpenAI APIs for intelligent automation. Beyond AI, I excel at complex integrations: Stripe/PayPal payment processing, Auth0 authentication, real-time Firebase notifications, and third-party API orchestration that powers sophisticated business logic.",
+      skill: "RAG & AI Platforms",
+      p: "I build production-oriented AI systems including semantic chunking, embedding pipelines, hybrid search, and LLM application workflows. I prioritize measurable quality improvements through retrieval relevance, latency optimization, and system-level observability.",
     },
     {
-      skill: "3D & Interactive Experiences",
-      p: "I create immersive web experiences using Three.js, React Three Fiber, and advanced techniques like Gaussian Splatting. From interactive 3D virtual tours to shader-based animations with GSAP, I transform standard websites into engaging, memorable digital experiences. I optimize WebGL performance for cross-device compatibility while maintaining stunning visual fidelity that makes brands stand out.",
+      skill: "Real-time SaaS Engineering",
+      p: "I architect multi-tenant SaaS products with strict RBAC boundaries, secure tenant data isolation, and real-time features like live classes and collaborative workflows. I own delivery end-to-end from architecture to production hardening.",
     },
   ];
 
@@ -60,32 +60,28 @@ function Index() {
 
   const techCategories = [
     {
-      category: "Cloud and DevOps",
-      techs: ["Docker", "CI/CD Pipelines (GitHub, Bitbucket Actions)", "AWS (Deployment-Level Experience)", "Terraform", "Ansible"],
+      category: "Cloud & Infrastructure",
+      techs: ["AWS (EKS, EC2, S3)", "Docker", "Kubernetes", "CI/CD", "Prometheus", "Grafana"],
     },
     {
-      category: "AI / Machine Learning",
-      techs: ["Deep Learning", "Reinforcement Learning", "Large Language Models", "Retrieval-Augmented Generation", "Computer Vision", "Natural Language Processing (NLP)", "Model Training, Inference, and Evaluation", "scikit-learn"],
+      category: "AI & Data",
+      techs: ["RAG Pipelines", "LangChain", "Embeddings", "Semantic Search", "pgvector", "Redis"],
     },
     {
       category: "Backend Development",
-      techs: ["FastAPI", "Django", "Flask", "Node.js", "Express.js", "GraphQL", "REST APIs", "Microservices Architecture"],
-    },
-    {
-      category: "Frontend Development",
-      techs: ["React.js", "Next.js", "TypeScript", "HTML5 / CSS3", "Streamlit"],
-    },
-    {
-      category: "Databases & Storage",
-      techs: ["PostgreSQL", "MongoDB", "MySQL"],
+      techs: ["Django", "Node.js", "FastAPI", "REST APIs", "Async Processing", "WebSockets", "WebRTC"],
     },
     {
       category: "Programming Languages",
-      techs: ["Python", "C++", "JavaScript", "TypeScript", "Go", "SQL"],
+      techs: ["Python", "C++", "Java", "JavaScript", "Go"],
     },
     {
-      category: "Frameworks & Libraries",
-      techs: ["PyTorch", "TensorFlow / Keras", "LangChain", "yfinance", "OpenCV", "PyPDF2"],
+      category: "Databases",
+      techs: ["PostgreSQL", "pgvector", "Redis"],
+    },
+    {
+      category: "Highlights",
+      techs: ["DAG Engines", "Hybrid Retrieval", "Tenant Isolation", "Observability", "Cost Optimization"],
     },
   ];
 
@@ -157,7 +153,7 @@ function Index() {
                 delay={1}
                 stagger={0.01}
                 once={true}
-                text="I'm a Software Developer & AI/ML Developer specializing in building intelligent solutions, machine learning models, and scalable software applications. With expertise in Python, deep learning frameworks, and full-stack development, I create solutions that solve real-world problems—from medical diagnosis using CNNs to multi-tenant SaaS platforms."
+                text="Backend and AI engineer delivering systems end-to-end: from workflow engines and retrieval-based AI platforms to real-time multi-tenant SaaS. I focus on production reliability, performance, and measurable business outcomes."
               />
             </div>
           </div>
@@ -173,7 +169,7 @@ function Index() {
               once={true}
               stagger={0.01}
               className="w-full"
-              text="I'm a Software Developer & AI/ML Developer who bridges the gap between cutting-edge artificial intelligence and practical software solutions. With proven experience building machine learning models, full-stack applications, and enterprise-grade systems, I specialize in solving complex technical challenges while delivering efficient, scalable implementations."
+              text="I build backend-heavy products that need to run reliably at scale. My work includes distributed DAG execution, semantic retrieval systems for large document corpora, and secure multi-tenant product architectures."
             />
             <br />
             <br />
@@ -182,7 +178,7 @@ function Index() {
               stagger={0.01}
               delay={0.2}
               className="w-full"
-              text="My approach combines strategic problem-solving with hands-on development—whether it's implementing deep learning models with TensorFlow and Keras, building scalable backend systems with Django and Node.js, or deploying containerized applications with Docker and Kubernetes. I've worked across diverse domains from healthcare AI to enterprise software, consistently delivering production-ready solutions that make a real impact."
+              text="I have owned production systems in fast-moving environments, including EKS migration for 15+ microservices, autoscaling initiatives that reduced cloud spend by ~50%, and observability setups that improved incident response speed."
             />
             <br />
             <br />
@@ -191,7 +187,7 @@ function Index() {
               stagger={0.01}
               delay={0.4}
               className="w-full"
-              text="What sets me apart is my ability to work across the entire stack: designing systems in Node.js, building dynamic React frontends, integrating AI capabilities, and deploying Dockerized microservices with CI/CD pipelines. I don't just write code—I architect solutions that drive measurable business outcomes."
+              text="I work comfortably across backend systems, AI integrations, and infrastructure operations. The goal is always the same: ship robust products with clear technical quality and measurable user impact."
             />
           </div>
           <div className="relative overflow-hidden h-[60vh] md:h-[100vh] object-cover w-full md:w-[50%] rounded-md">

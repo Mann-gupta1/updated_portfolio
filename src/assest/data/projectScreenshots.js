@@ -7,20 +7,11 @@ const placeholder = base + 'project_placeholder.png';
 
 /** Project slug -> array of image paths (first = hero). */
 export const projectScreenshots = {
-  'production-llm-customer-support-agent': [base + 'LLM Customer Support Agent.png'],
-  'agentic-ai-system': [placeholder],
-  'quillgpt': [base + 'Quillgpt.png'],
-  'optiquery': [placeholder],
-  'medical-3d-learning-platform': [base + 'interactive medical platform.png'],
-  'sonnet-music-recommendation': [placeholder],
-  'dsa-learning-platform': [placeholder],
-  'project-management-system': [placeholder],
-  'player-ball-interaction-analysis': [placeholder],
-  'pdf-chat-application': [placeholder],
-  'stock-market-chatbot': [placeholder],
-  'vidyou-educational-platform': [placeholder],
-  'pneumonia-detection-system': [placeholder],
-  'space-mission-autonomy-system': [placeholder],
+  'workable-dag-engine': [placeholder],
+  'edunexus-multi-tenant-saas': [placeholder],
+  'document-intelligence-system': [base + 'chat with pdf analytics.png'],
+  'aegistrace': [base + 'ai_agent_consensus_dashboard.png'],
+  'kubewise': [base + 'advanced_sql_cost_analysis_tool.png'],
 };
 
 export default projectScreenshots;

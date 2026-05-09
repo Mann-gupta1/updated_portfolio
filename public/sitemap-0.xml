@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://gmannn.netlify.app/</loc><lastmod>2026-03-12T09:18:38.961Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/about-me/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/contact/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/expereince/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/works/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/production-llm-customer-support-agent/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/agentic-ai-system/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/quillgpt/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/optiquery/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/medical-3d-learning-platform/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/sonnet-music-recommendation/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/dsa-learning-platform/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/project-management-system/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/player-ball-interaction-analysis/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/pdf-chat-application/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/stock-market-chatbot/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/vidyou-educational-platform/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/pneumonia-detection-system/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://gmannn.netlify.app/project/space-mission-autonomy-system/</loc><lastmod>2026-03-12T09:18:38.963Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gmannn.netlify.app/</loc><lastmod>2026-05-09T11:05:06.586Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gmannn.netlify.app/about-me/</loc><lastmod>2026-05-09T11:05:06.604Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gmannn.netlify.app/contact/</loc><lastmod>2026-05-09T11:05:06.604Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gmannn.netlify.app/expereince/</loc><lastmod>2026-05-09T11:05:06.604Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gmannn.netlify.app/works/</loc><lastmod>2026-05-09T11:05:06.604Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gmannn.netlify.app/project/workable-dag-engine/</loc><lastmod>2026-05-09T11:05:06.604Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gmannn.netlify.app/project/edunexus-multi-tenant-saas/</loc><lastmod>2026-05-09T11:05:06.604Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gmannn.netlify.app/project/document-intelligence-system/</loc><lastmod>2026-05-09T11:05:06.604Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gmannn.netlify.app/project/aegistrace/</loc><lastmod>2026-05-09T11:05:06.604Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://gmannn.netlify.app/project/kubewise/</loc><lastmod>2026-05-09T11:05:06.604Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

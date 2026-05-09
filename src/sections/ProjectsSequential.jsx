@@ -7,7 +7,7 @@ import WordAnimation from "../components/UI/WordAnimation";
 import FlowingMenu from "../componet/UI/FlowingMenu";
 import { getProjectImageSrc } from "../assest/utils/imageUrl";
 
-const FEATURED_PROJECT_SLUGS = ['production-llm-customer-support-agent', 'dsa-learning-platform', 'quillgpt'];
+const FEATURED_PROJECT_SLUGS = ['workable-dag-engine', 'document-intelligence-system', 'aegistrace'];
 
 function ProjectsSequential() {
   const displayedProjects = worksObj
@@ -28,7 +28,7 @@ function ProjectsSequential() {
         {/* Section Title */}
         <div className="mb-16 md:mb-24">
           <WordAnimation
-            text="Discover my latest work and creative solutions that bring ideas to life"
+            text="Selected systems and platforms I shipped with measurable impact"
             className="text-sec lg:w-[70%] w-full text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl mb-8 sm:mb-12 leading-[1.1] lg:px-4 px-1 font-righteous"
             trigger=".projects-sequential-section"
             start="top 90%"

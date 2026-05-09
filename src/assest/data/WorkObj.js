@@ -2,255 +2,93 @@ import { projectScreenshots } from './projectScreenshots';
 
 const worksObjRaw = [
   {
-    slug: 'production-llm-customer-support-agent',
-    title: 'Production LLM Customer Support Agent',
-    time: 2024,
-    Subtitle: 'Chat + Voice Support Automation',
-    bg: 'bg-[#0d9488]',
+    slug: 'workable-dag-engine',
+    title: 'Workable DAG Engine',
+    time: 2025,
+    Subtitle: 'Distributed Multimodal Workflow Orchestrator',
+    bg: 'bg-[#0f766e]',
     Link: '#',
-    color: 'text-[#0d9488]',
-    description: 'Built an AI support agent handling chat and voice interactions. Used retrieval-augmented generation to reduce hallucinations. Added tool workflows for order lookup and support tickets.',
-    techStack: ['FastAPI', 'React', 'RAG', 'LLM', 'Redis', 'Docker', 'Whisper', 'TTS'],
-    role: 'Designed and built the end-to-end support automation system with safety and observability.',
+    color: 'text-[#0f766e]',
+    description: 'Designed and shipped a DAG execution engine for multimodal tasks across text, image, and video pipelines. The system runs 100+ jobs/day with persistent state, retries, and resilient distributed execution.',
+    techStack: ['Python', 'Distributed Workers', 'Queue Orchestration', 'Async Processing', 'Retry Logic'],
+    role: 'Owned architecture and implementation of the workflow engine and scheduler.',
     keyResponsibilities: [
-      'Implemented intent detection, RAG retrieval, and tool routing (orders, refunds, tickets)',
-      'Built confidence estimation and human escalation for uncertain cases',
-      'Integrated chat and voice pipelines (STT/TTS) through the same orchestration layer',
-      'Added guardrails, metrics (latency, hallucination rate), and containerized deployment'
+      'Built fault-tolerant stateful DAG execution with retry and recovery controls',
+      'Parallelized independent stages to reduce runtime by ~40%',
+      'Added configurable concurrency and queue-based execution policies',
+      'Designed resilient execution flow for production workload stability'
     ]
   },
   {
-    slug: 'agentic-ai-system',
-    title: 'Agentic AI System',
-    time: 2024,
-    Subtitle: 'Multi-Agent Intelligence Framework',
-    bg: 'bg-[#64748b]',
+    slug: 'edunexus-multi-tenant-saas',
+    title: 'EduNexus',
+    time: 2025,
+    Subtitle: 'Real-time Multi-tenant EdTech SaaS',
+    bg: 'bg-[#2563eb]',
     Link: '#',
-    color: 'text-[#64748b]',
-    description: 'A modular multi-agent AI framework supporting reasoning, memory, and retrieval workflows.',
-    techStack: ['Python', 'Vector Search', 'TF-IDF', 'RAG'],
-    role: 'Designed agent responsibilities and coordination logic.',
+    color: 'text-[#2563eb]',
+    description: 'Architected a multi-tenant SaaS platform with strict tenant isolation and RBAC across students, teachers, admins, and parents. Included real-time classes, AI homework evaluation, and automated reporting.',
+    techStack: ['Node.js', 'PostgreSQL', 'RBAC', 'WebRTC', 'Real-time Systems', 'WhatsApp Integration'],
+    role: 'Led multi-tenant architecture, authorization model, and real-time collaboration features.',
     keyResponsibilities: [
-      'Implemented reasoning and knowledge agents',
-      'Built vector-based memory recall mechanisms',
-      'Integrated document-grounded retrieval pipelines',
-      'Enabled multi-agent collaboration for complex queries'
+      'Implemented secure tenant-scoped data access with zero cross-tenant bleed',
+      'Shipped live class streaming for 50+ concurrent users/session',
+      'Integrated AI-powered homework grading and student-specific feedback',
+      'Built weekly and monthly report generation across channels'
     ]
   },
   {
-    slug: 'quillgpt',
-    title: 'QuillGPT',
-    time: 2024,
-    Subtitle: 'Custom GPT Training Framework',
-    bg: 'bg-[#06b6d4]',
+    slug: 'document-intelligence-system',
+    title: 'Document Intelligence System',
+    time: 2025,
+    Subtitle: 'High-throughput RAG & Hybrid Search',
+    bg: 'bg-[#7c3aed]',
     Link: '#',
-    color: 'text-[#06b6d4]',
-    description: 'Implemented a GPT-style decoder architecture in PyTorch. Trained domain-specific language models. Built a Streamlit interface for model interaction.',
-    techStack: ['PyTorch', 'FastAPI', 'Docker', 'Streamlit'],
-    role: 'Implemented model architecture and deployment pipeline.',
+    color: 'text-[#7c3aed]',
+    description: 'Built a document intelligence platform for 1000+ page PDFs with semantic chunking, vector indexing, and hybrid retrieval. Improved search relevance and reduced response latency under concurrent load.',
+    techStack: ['Python', 'PostgreSQL', 'pgvector', 'Embeddings', 'Hybrid Search', 'Caching'],
+    role: 'Designed ingestion, retrieval, and indexing architecture for production-scale documents.',
     keyResponsibilities: [
-      'Built GPT decoder blocks with multi-head attention',
-      'Designed custom tokenization and serialization',
-      'Deployed inference APIs using FastAPI',
-      'Created an interactive Streamlit playground'
+      'Designed semantic chunking with sliding-window overlap',
+      'Added pgvector-based indexing for sub-second semantic lookups',
+      'Implemented hybrid search for ~40% relevance lift',
+      'Reduced query latency by ~35% with cache and index tuning'
     ]
   },
   {
-    slug: 'optiquery',
-    title: 'OptiQuery',
-    time: 2023,
-    Subtitle: 'Database Query Optimizer',
-    bg: 'bg-[#fb7185]',
+    slug: 'aegistrace',
+    title: 'AegisTrace',
+    time: 2025,
+    Subtitle: 'LLM Observability Platform',
+    bg: 'bg-[#dc2626]',
     Link: '#',
-    color: 'text-[#fb7185]',
-    description: 'A SQL query optimizer that transforms queries into efficient relational algebra execution plans.',
-    techStack: ['SQL', 'Relational Algebra', 'JavaScript', 'Data Structures'],
-    role: 'Implemented parsing, optimization, and visualization logic.',
+    color: 'text-[#dc2626]',
+    description: 'Built an observability system for LLM outputs using embedding-based evaluation and similarity scoring to detect drift and hallucination behavior in real-time.',
+    techStack: ['Python', 'pgvector', 'Embeddings', 'Cosine Similarity', 'Observability'],
+    role: 'Implemented evaluation, tracing, and debugging instrumentation for LLM systems.',
     keyResponsibilities: [
-      'Parsed SQL queries into relational algebra trees',
-      'Applied predicate pushdown and join reordering',
-      'Estimated execution costs before and after optimization',
-      'Visualized query plans and performance metrics'
+      'Added embedding-based output evaluation to reduce hallucination rate by ~35%',
+      'Instrumented telemetry and traces for production debugging',
+      'Cut average debugging time by ~60% using searchable traces',
+      'Built quality signals to monitor answer grounding consistency'
     ]
   },
   {
-    slug: 'medical-3d-learning-platform',
-    title: '3D Medical Learning Ecosystem',
-    time: 2024,
-    Subtitle: 'Medical EdTech Platform',
-    bg: 'bg-[#10b981]',
+    slug: 'kubewise',
+    title: 'KubeWise',
+    time: 2025,
+    Subtitle: 'Kubernetes Resource Analytics',
+    bg: 'bg-[#ea580c]',
     Link: '#',
-    color: 'text-[#10b981]',
-    description: 'A comprehensive 3D medical education platform with simulations, quizzes, and offline learning.',
-    techStack: ['React', 'Three.js', 'FastAPI', 'PostgreSQL', 'PWA'],
-    role: 'Architected the full learning and visualization system.',
+    color: 'text-[#ea580c]',
+    description: 'Developed a Kubernetes analytics system that tracks utilization and recommends resource rightsizing for cost and performance optimization.',
+    techStack: ['Kubernetes', 'AWS', 'Prometheus', 'Grafana', 'Cost Optimization'],
+    role: 'Built analytics workflows and observability dashboards for cluster operators.',
     keyResponsibilities: [
-      'Built interactive 3D anatomy and physiology simulations',
-      'Implemented adaptive testing and spaced revision logic',
-      'Designed offline-first PWA architecture',
-      'Structured verified MBBS and BAMS medical content'
-    ]
-  },
-  {
-    slug: 'sonnet-music-recommendation',
-    title: 'Sonnet',
-    time: 2024,
-    Subtitle: 'LLM-Based Recommendation Engine',
-    bg: 'bg-[#f97316]',
-    Link: '#',
-    color: 'text-[#f97316]',
-    description: 'A lyric-based song recommendation chatbot powered by vector similarity search and LLMs.',
-    techStack: ['LangChain', 'FAISS', 'Python', 'Streamlit'],
-    role: 'Built the recommendation and similarity search pipeline.',
-    keyResponsibilities: [
-      'Embedded large lyric datasets into FAISS vector stores',
-      'Implemented semantic similarity search',
-      'Integrated LLM-based intent understanding',
-      'Optimized response latency to under 3 seconds'
-    ]
-  },
-  {
-    slug: 'dsa-learning-platform',
-    title: 'DSA Learning Platform',
-    time: 2024,
-    Subtitle: 'Interactive EdTech Platform',
-    bg: 'bg-[#4f46e5]',
-    Link: '#',
-    color: 'text-[#4f46e5]',
-    description: 'Built an interactive platform for learning algorithms. Supports multi-language code execution (Python, C++, JavaScript, Go). Includes an AI assistant for explaining solutions.',
-    techStack: ['React', 'Three.js', 'D3.js', 'Node.js', 'Docker'],
-    role: 'Designed and built the end-to-end interactive learning system.',
-    keyResponsibilities: [
-      'Developed multi-language code execution with sandboxing and timeout protection',
-      'Built 2D and 3D algorithm visualizations using Three.js and D3.js',
-      'Implemented gamification with XP, levels, achievements, and leaderboards',
-      'Integrated an AI chatbot for concept clarification and contextual help'
-    ]
-  },
-  {
-    slug: 'project-management-system',
-    title: 'Project Management System',
-    time: 2024,
-    Subtitle: 'Multi-Tenant SaaS Platform',
-    bg: 'bg-[#0ea5e9]',
-    Link: '#',
-    color: 'text-[#0ea5e9]',
-    description: 'A multi-tenant project and task management system with real-time search, analytics, and GraphQL APIs.',
-    techStack: ['Django', 'GraphQL', 'React', 'TypeScript', 'PostgreSQL'],
-    role: 'Implemented backend architecture and frontend data workflows.',
-    keyResponsibilities: [
-      'Designed multi-tenant GraphQL APIs for projects and tasks',
-      'Built real-time search with debounced queries',
-      'Developed analytics dashboards for project tracking',
-      'Implemented responsive UI with dark mode support'
-    ]
-  },
-  {
-    slug: 'player-ball-interaction-analysis',
-    title: 'Player–Ball Interaction Analysis',
-    time: 2024,
-    Subtitle: 'Computer Vision & Sports Analytics',
-    bg: 'bg-[#22c55e]',
-    Link: '#',
-    color: 'text-[#22c55e]',
-    description: 'A computer vision pipeline that analyzes player touches, ball rotation, and movement velocity from sports videos.',
-    techStack: ['Python', 'OpenCV', 'Pose Estimation', 'NumPy'],
-    role: 'Designed the complete computer vision and analytics pipeline.',
-    keyResponsibilities: [
-      'Implemented pose-based touch detection for left and right leg classification',
-      'Analyzed ball spin direction using feature-flow tracking',
-      'Estimated player velocity from keypoint trajectories',
-      'Generated annotated videos with real-time overlays'
-    ]
-  },
-  {
-    slug: 'pdf-chat-application',
-    title: 'PDF Chat Application',
-    time: 2024,
-    Subtitle: 'RAG-based AI Tool',
-    bg: 'bg-[#f59e0b]',
-    Link: '#',
-    color: 'text-[#f59e0b]',
-    description: 'A RAG-powered chat application that answers questions strictly based on uploaded PDF documents.',
-    techStack: ['Streamlit', 'Python', 'PyPDF2', 'Groq LLM', 'RAG'],
-    role: 'Built the retrieval and response pipeline.',
-    keyResponsibilities: [
-      'Implemented PDF text extraction and preprocessing',
-      'Designed relevance checking for document-grounded responses',
-      'Integrated Groq LLM for context-aware answering',
-      'Built a clean Streamlit-based chat interface'
-    ]
-  },
-  {
-    slug: 'stock-market-chatbot',
-    title: 'Stock Market Chatbot',
-    time: 2024,
-    Subtitle: 'Multi-Agent Financial AI',
-    bg: 'bg-[#ef4444]',
-    Link: '#',
-    color: 'text-[#ef4444]',
-    description: 'A multi-agent AI system delivering real-time stock prices, historical analysis, and predictive insights.',
-    techStack: ['Python', 'Streamlit', 'PostgreSQL', 'yfinance', 'Docker'],
-    role: 'Designed the agent architecture and tool orchestration.',
-    keyResponsibilities: [
-      'Implemented agents for memory, reasoning, and market data retrieval',
-      'Integrated MCP tools for dynamic stock queries',
-      'Built regression-based price prediction models',
-      'Persisted chat history using Dockerized PostgreSQL'
-    ]
-  },
-  {
-    slug: 'vidyou-educational-platform',
-    title: 'Vidyou',
-    time: 2024,
-    Subtitle: 'AI-Moderated Social Platform',
-    bg: 'bg-[#8b5cf6]',
-    Link: '#',
-    color: 'text-[#8b5cf6]',
-    description: 'An AI-powered educational social platform ensuring content quality through intelligent moderation.',
-    techStack: ['Next.js', 'Node.js', 'MongoDB', 'Docker', 'GitHub Actions'],
-    role: 'Led full-stack development and DevOps automation.',
-    keyResponsibilities: [
-      'Built content creation and engagement features',
-      'Implemented NLP-based content verification pipelines',
-      'Automated CI/CD with Docker and GitHub Actions',
-      'Integrated monitoring and logging for production readiness'
-    ]
-  },
-  {
-    slug: 'pneumonia-detection-system',
-    title: 'Pneumonia Detection System',
-    time: 2023,
-    Subtitle: 'Medical AI Application',
-    bg: 'bg-[#14b8a6]',
-    Link: '#',
-    color: 'text-[#14b8a6]',
-    description: 'A deep learning system that detects pneumonia from chest X-ray images in real time.',
-    techStack: ['TensorFlow', 'Keras', 'Flask', 'HTML', 'CSS'],
-    role: 'Developed the ML model and inference pipeline.',
-    keyResponsibilities: [
-      'Trained CNN models for binary X-ray classification',
-      'Applied VGG16 preprocessing for image normalization',
-      'Integrated model inference into a Flask backend',
-      'Built a responsive UI for medical professionals'
-    ]
-  },
-  {
-    slug: 'space-mission-autonomy-system',
-    title: 'SMAS',
-    time: 2024,
-    Subtitle: 'Autonomous Space AI System',
-    bg: 'bg-[#1e293b]',
-    Link: '#',
-    color: 'text-[#1e293b]',
-    description: 'A physics-informed AI system for fully autonomous deep-space navigation and mission planning.',
-    techStack: ['Reinforcement Learning', 'Orbital Mechanics', 'React', 'Three.js', 'Python'],
-    role: 'Designed autonomous decision-making and simulation architecture.',
-    keyResponsibilities: [
-      'Integrated physics-informed RL with differentiable orbital dynamics',
-      'Simulated spacecraft motion using JPL Horizons and numerical integrators',
-      'Implemented hierarchical planners for thrust and gravity assists',
-      'Built real-time 3D mission visualization using Three.js'
+      'Analyzed cluster-level utilization to generate right-sizing recommendations',
+      'Reduced monthly AWS expenditure by ~30% with optimization insights',
+      'Wired Prometheus metrics into custom operational dashboards',
+      'Exposed real-time saturation and pod eviction trends for proactive response'
     ]
   }
 ];

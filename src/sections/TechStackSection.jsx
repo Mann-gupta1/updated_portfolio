@@ -4,10 +4,10 @@ import React from "react";
 import WordAnimation from "@/components/UI/WordAnimation";
 
 const stack = {
-  "Cloud & Infrastructure": ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform", "Ansible"],
-  "AI / ML": ["PyTorch", "TensorFlow", "LangChain", "scikit-learn"],
-  "Backend": ["Python", "Go", "Django", "Node.js"],
-  "Databases": ["PostgreSQL", "MongoDB", "Redis"],
+  "Cloud & Infrastructure": ["AWS (EKS, EC2, S3)", "Docker", "Kubernetes", "CI/CD", "Prometheus", "Grafana"],
+  "AI & Data": ["RAG Pipelines", "LangChain", "Embeddings", "Semantic Search", "pgvector", "Redis"],
+  "Backend & Systems": ["Python", "Go", "Django", "Node.js", "FastAPI", "WebRTC", "WebSockets"],
+  "Languages": ["Python", "C++", "Java", "JavaScript", "Go"],
 };
 
 export default function TechStackSection() {

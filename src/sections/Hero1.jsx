@@ -79,14 +79,14 @@ function Hero1() {
         <div className=" flex flex-col  item lg:px-0  px-[1rem] text-black z-50 justify-center text-center max-w-3xl mx-auto ">
           <div style={{ clipPath: "polygon(0 0%, 100% 0%, 100% 100%, 0 100%)" }} className=" words overflow-hidden lg:leading-[3.5rem] md:leading-[2.8rem] leading-[2rem] ">
             <h1 ref={(el) => (textRefs.current[0] = el)} className="font-cabinetGrotesk text-[1.6rem] xs:text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4.5rem] pb-2 word">
-              Backend & Infrastructure Engineer
+              Backend and AI Engineer
             </h1>
           </div>
           <p className="item font-cabinetGrotesk text-base sm:text-lg md:text-xl text-black/80 mt-3 word">
-            Building scalable cloud systems and production-ready AI services.
+            Building distributed systems, RAG pipelines, and real-time SaaS products.
           </p>
           <p className="item font-cabinetGrotesk text-sm sm:text-base text-black/70 mt-2 mb-8 word">
-            Reduced infrastructure cost by 50% through Kubernetes autoscaling at WorkIndia.
+            Shipped production systems across WorkIndia, ITC Infotech, and independent products.
           </p>
           <motion.div
             className="item hero-buttons flex flex-wrap gap-3 sm:gap-4 justify-center word"
