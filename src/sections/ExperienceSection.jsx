@@ -194,12 +194,13 @@ function ExperienceSection() {
     if (!contentRef.current) return;
 
     const timelineProgress = document.querySelector('.timeline-progress');
-    if (!timelineProgress) return;
+    const timelineContainer = document.querySelector('.experience-timeline-container');
+    if (!timelineProgress || !timelineContainer) return;
 
     ScrollTrigger.create({
-      trigger: contentRef.current,
+      trigger: timelineContainer,
       start: "top center",
-      end: "bottom bottom",
+      end: "bottom center",
       scrub: 1,
       markers: false,
       onUpdate: (self) => {
@@ -213,47 +214,11 @@ function ExperienceSection() {
     });
   }, []);
 
-  // Animate background color when reaching last experience
-  useEffect(() => {
-    if (!mainRef.current) return;
-
-    const lastExperienceIndex = paragraphData.length - 1;
-    const lastExperience = document.querySelector(`[data-index="${lastExperienceIndex}"]`);
-
-    if (!lastExperience) return;
-
-    ScrollTrigger.create({
-      trigger: lastExperience,
-      start: "top center",
-      end: "bottom center",
-      markers: false,
-      onEnter: () => {
-        gsap.to('.timeline-line', {
-          opacity: 0,
-          duration: 0.6,
-        });
-        gsap.to('.timeline-progress', {
-          opacity: 0,
-          duration: 0.6,
-        });
-      },
-      onLeaveBack: () => {
-        gsap.to('.timeline-line', {
-          opacity: 1,
-          duration: 0.4,
-        });
-        gsap.to('.timeline-progress', {
-          opacity: 1,
-          duration: 0.4,
-        });
-      }
-    });
-  }, []);
-
   // SVG Line Animation
   useEffect(() => {
     const svgPath = document.querySelector('#experience-line-path');
-    if (!svgPath || !contentRef.current) return;
+    const timelineContainer = document.querySelector('.experience-timeline-container');
+    if (!svgPath || !timelineContainer) return;
 
     const pathLength = svgPath.getTotalLength();
 
@@ -263,9 +228,9 @@ function ExperienceSection() {
     });
 
     ScrollTrigger.create({
-      trigger: contentRef.current,
+      trigger: timelineContainer,
       start: "top center",
-      end: "bottom bottom",
+      end: "bottom center",
       scrub: 1,
       markers: false,
       onUpdate: (self) => {

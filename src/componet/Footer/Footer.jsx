@@ -300,10 +300,10 @@ function Footer() {
         {/* big text and robot */}
         <div className="flex flex-col items-center justify-center w-full relative min-h-[12rem] lg:min-h-[16rem]">
 
-          {/* Spline Robot — no spaces in URL; z-index above MANN text; overflow-visible on section */}
-          <div className="hidden md:block absolute -top-[min(12rem,22vh)] md:-top-[min(14rem,24vh)] lg:-top-[min(16rem,26vh)] left-1/2 -translate-x-1/2 z-[35] pointer-events-none w-[min(100%,380px)] h-[280px] md:w-[400px] md:h-[320px] lg:w-[450px] lg:h-[450px]">
+          {/* Keep original large robot size/placement while preserving visibility fix */}
+          <div className="hidden lg:block absolute -top-[15em] scale-90 translate-x-1/2 right-1/2 lg:w-[450px] lg:h-[450px] w-[300px] h-[300px] rounded-lg z-[35] pointer-events-none">
             <Spline
-              scene="/robot.splinecode"
+              scene="/scene%20(1).splinecode"
               style={{ width: '100%', height: '100%' }}
             />
           </div>
