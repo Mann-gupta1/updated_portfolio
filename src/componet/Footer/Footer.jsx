@@ -209,7 +209,7 @@ function Footer() {
 
 
   return (
-    <div className=" footerSection font-cabinetGrotesk    relative overflow-hidden z-[30] ">
+    <div className=" footerSection font-cabinetGrotesk    relative overflow-x-hidden overflow-y-visible z-[30] ">
       {/* curve */}
 
       <div className="w-[120%] FooterCurve absolute left-[50%] -top-[5rem] sm:-top-[6rem] md:-top-[6.5rem] lg:-top-[7rem] transform translate-x-[-50%] h-[12px] sm:h-[15px] md:h-[20px] lg:h-[30px] z-50">
@@ -298,16 +298,16 @@ function Footer() {
         </div>
 
         {/* big text and robot */}
-        <div className="flex flex-col items-center justify-center w-full relative">
+        <div className="flex flex-col items-center justify-center w-full relative min-h-[12rem] lg:min-h-[16rem]">
 
-          {/* Spline Robot */}
-          <div className="hidden lg:block absolute -top-[15em] scale-90 translate-x-1/2 right-1/2 lg:w-[450px] lg:h-[450px] w-[300px] h-[300px] rounded-lg">
+          {/* Spline Robot — no spaces in URL; z-index above MANN text; overflow-visible on section */}
+          <div className="hidden md:block absolute -top-[min(12rem,22vh)] md:-top-[min(14rem,24vh)] lg:-top-[min(16rem,26vh)] left-1/2 -translate-x-1/2 z-[35] pointer-events-none w-[min(100%,380px)] h-[280px] md:w-[400px] md:h-[320px] lg:w-[450px] lg:h-[450px]">
             <Spline
-              scene="/scene (1).splinecode"
+              scene="/robot.splinecode"
               style={{ width: '100%', height: '100%' }}
             />
           </div>
-          <div className="font-righteous leading-[6rem] sm:leading-[8rem] md:leading-[12rem] lg:leading-[28rem] text-[5rem] sm:text-[6rem] md:text-[10rem] lg:text-[30rem] flex flex-col text-center">
+          <div className="relative z-[15] font-righteous leading-[6rem] sm:leading-[8rem] md:leading-[12rem] lg:leading-[28rem] text-[5rem] sm:text-[6rem] md:text-[10rem] lg:text-[30rem] flex flex-col text-center">
             {/* <div className="overflow-hidden mb-[1rem]">
               <h1 ref={nameRef} className="mann-text font-righteous ">MANN</h1>
             </div> */}

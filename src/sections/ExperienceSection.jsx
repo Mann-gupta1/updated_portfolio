@@ -310,28 +310,6 @@ function ExperienceSection() {
           ref={contentRef}
           className="flex flex-col items-center w-full text-white lg:px-8 px-0 pt-12 md:pt-16 lg:pt-24 pb-8 md:pb-10 lg:pb-12 relative"
         >
-          {/* SVG Line Animation - height spans full section so rope reaches last item (GushWork) */}
-          <div className="absolute lg:block hidden top-[20rem] md:top-[25rem] lg:top-[30rem] lg:left-0 -left-44 w-full pointer-events-none z-[5]" style={{ height: `${paragraphData.length * 95}vh` }}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full h-full"
-              viewBox="0 0 1200 3200"
-              fill="none"
-              preserveAspectRatio="xMidYMin slice"
-            >
-              <path
-                id="experience-line-path"
-                d="M0.478149 0.14624C179.389 584.988 1024.24 241.063 1203.16 488.791C1382.07 736.519 591.549 555.192 685.399 850.592C754.827 1069.12 1251.74 767.219 1254.66 995.312C1257.47 1214.38 748.65 1128.11 748.65 1392.87C748.65 1678.93 1318.81 1483.96 1318.81 1754.67C1318.81 1978.88 826.875 1777.46 819.13 2001.55C811.613 2219.04 1126.15 2122.45 1318.81 2242.46C1511.48 2362.48 902.26 3183.15 902.26 3183.15"
-                stroke="#d4f534"
-                strokeWidth="20"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                fill="none"
-                opacity="0.9"
-              />
-            </svg>
-          </div>
-
           {/* Header Section */}
           <div className="text-center mb-10 md:mb-16 lg:mb-20 max-w-4xl px-4">
             <h4 className="experience-text-secondary lg:text-sm text-xs font-bold tracking-[0.3em] mb-4 md:mb-6 font-cabinetGrotesk" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>Experience & Technologies</h4>
@@ -345,22 +323,48 @@ function ExperienceSection() {
             </h3>
           </div>
 
-          {/* Experience Timeline */}
+          {/* Experience Timeline — decorative rope SVG height matches timeline content (not fixed vh) */}
           <div className="w-full px-[1rem] md:px-[3rem] lg:px-[6rem] mb-6 md:mb-8 lg:mb-10 relative">
-            <div className="timeline-line absolute left-1/2 top-0 w-[1px]" style={{ height: '100%', transform: 'translateX(-50%)', backgroundColor: 'rgba(0, 0, 0, 0.2)' }}></div>
+            <div className="relative w-full">
+              <div
+                className="timeline-line absolute left-1/2 top-0 bottom-0 w-[1px]"
+                style={{ transform: 'translateX(-50%)', backgroundColor: 'rgba(0, 0, 0, 0.2)' }}
+              />
 
-            <div
-              className="timeline-progress absolute left-1/2 top-0  lg:w-[2px] w-[1px] bg-orange-500 origin-top"
-              style={{
-                height: '0%',
-                transform: 'translateX(-50%)',
-                backgroundColor: '#D4F534',
-                boxShadow: '0 0 15px #D4F534',
-                zIndex: 2
-              }}
-            ></div>
+              <div
+                className="timeline-progress absolute left-1/2 top-0 lg:w-[2px] w-[1px] bg-orange-500 origin-top"
+                style={{
+                  height: '0%',
+                  transform: 'translateX(-50%)',
+                  backgroundColor: '#D4F534',
+                  boxShadow: '0 0 15px #D4F534',
+                  zIndex: 2,
+                }}
+              />
 
-            <div className="relative experience-timeline-container" >
+              {/* Lime rope — locked to timeline column height so it does not extend past last entry */}
+              <div className="absolute inset-0 pointer-events-none z-[5] hidden lg:block overflow-hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-full h-full"
+                  viewBox="0 0 1200 3200"
+                  fill="none"
+                  preserveAspectRatio="xMidYMin meet"
+                >
+                  <path
+                    id="experience-line-path"
+                    d="M0.478149 0.14624C179.389 584.988 1024.24 241.063 1203.16 488.791C1382.07 736.519 591.549 555.192 685.399 850.592C754.827 1069.12 1251.74 767.219 1254.66 995.312C1257.47 1214.38 748.65 1128.11 748.65 1392.87C748.65 1678.93 1318.81 1483.96 1318.81 1754.67C1318.81 1978.88 826.875 1777.46 819.13 2001.55C811.613 2219.04 1126.15 2122.45 1318.81 2242.46C1511.48 2362.48 902.26 3183.15 902.26 3183.15"
+                    stroke="#d4f534"
+                    strokeWidth="20"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    fill="none"
+                    opacity="0.9"
+                  />
+                </svg>
+              </div>
+
+              <div className="relative z-10 experience-timeline-container">
               {paragraphData.map((exp, index) => {
                 const isLeft = index % 2 === 0;
 
@@ -421,6 +425,7 @@ function ExperienceSection() {
                   </div>
                 );
               })}
+              </div>
             </div>
           </div>
         </div>
