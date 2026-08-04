@@ -34,9 +34,31 @@ body {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
-.word {
-  transform: translateY(115px);
-  transition: transform .5s;
+/* The hero reveal is now a self-completing CSS animation.
+   It used to be a bare `transform: translateY(115px)` that ONLY GSAP could undo,
+   so the hero paragraph sat 115px outside its clip container until JavaScript had
+   fully hydrated. Lighthouse measured that as an 8.9s LCP "render delay" — the text
+   existed in the HTML the whole time but was never painted.
+   As a CSS animation with `both` fill mode it reveals on its own, so first paint no
+   longer waits on JS, and a slow connection still sees the copy. */
+.hero .word {
+  animation: heroWordIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroWordIn {
+  from {
+    transform: translateY(115px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero .word {
+    animation: none;
+    transform: none;
+  }
 }
 
 .line{
@@ -79,3 +101,73 @@ body {
   fill: #ffffff;
 }
 
+
+
+/* ---------------------------------------------------------------------------
+   Moved out of `<style jsx>` in AboutMe.jsx and ExperienceSection.jsx.
+
+   Why: styled-jsx injects and removes <style> nodes at runtime. With
+   reactStrictMode double-invoking effects and AnimatePresence unmounting the
+   page on route change, styled-jsx could try to remove a style node whose
+   parent was already detached, crashing with
+   "TypeError: Cannot read properties of null (reading 'removeChild')".
+   Neither block interpolated a single JS value, so runtime injection bought
+   nothing. Plain CSS cannot hit that race at all.
+
+   NOTE ON SCOPING: styled-jsx scoped these rules to their own component. The
+   AboutMe rules are therefore scoped to `.About-me` by hand — in particular
+   `.word { white-space: pre }` must NOT go global, because Hero1 also uses
+   `.word` on a paragraph that has to wrap across lines.
+   --------------------------------------------------------------------------- */
+
+.About-me .stat-label {
+  opacity: 0;
+}
+
+.About-me .word {
+  display: inline-block;
+  white-space: pre;
+}
+
+.About-me .text-container {
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+}
+
+.About-me .word-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  margin-right: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .About-me .word-wrapper {
+    margin-right: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .About-me .word-wrapper {
+    margin-right: 1.5rem;
+  }
+}
+
+/* Experience timeline: class names are unique to that section already. */
+.experience-content,
+.timeline-dot {
+  opacity: 0;
+}
+
+.experience-content {
+  will-change: transform, opacity;
+}
+
+.timeline-dot {
+  will-change: transform, opacity, scale;
+  transform-origin: center;
+}
+
+.timeline-progress {
+  transition: opacity 0.6s ease;
+}

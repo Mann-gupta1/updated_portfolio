@@ -93,25 +93,34 @@ export default function App({ Component, pageProps }) {
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
+    // The page now renders beneath the overlay, so GSAP measured its positions
+    // while the overlay was up. Re-measure once it clears.
+    import("gsap/dist/ScrollTrigger").then(({ ScrollTrigger }) => {
+      ScrollTrigger.refresh();
+    });
   };
 
   return (
     <AppProvider>
       <div className={`${gilda.variable} ${lora.variable} ${cabinetGrotesk.variable}`}>
+        {/* Loading is an OVERLAY, not a gate.
+            It used to wrap the page in {!isLoading && ...}, which meant the
+            prerendered HTML for every route contained only the greeting screen:
+            no copy, and critically no <SEO> <title>/og: tags, since those live
+            inside the page component. Crawlers and LinkedIn/Slack link previews
+            saw the word "Hello" and nothing else.
+            Rendering the page underneath fixes indexing and previews; the overlay
+            still covers it visually until the greetings finish. */}
         {isLoading && (
-          <Loading 
-            onComplete={handleLoadingComplete} 
-          />
+          <div className="fixed inset-0 z-[10000]">
+            <Loading onComplete={handleLoadingComplete} />
+          </div>
         )}
-        {!isLoading && (
-          <>
         <LenisScroll />
         <AnimatePresence mode="wait">
           <CustomCursor />
           <Component key={router.route} {...pageProps} />
         </AnimatePresence>
-          </>
-        )}
       </div>
     </AppProvider>
   );

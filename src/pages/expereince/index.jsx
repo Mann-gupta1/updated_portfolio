@@ -9,6 +9,7 @@ import { paragraphData } from "../../assest/data/expData.js";
 import Image from "next/image";
 import SVGPathEditor from "../../componet/SVGPathEditor.jsx";
 import ScrollReveal from "../../componet/gsap/ScrollReveal";
+import SEO from "@/componet/SEO/Seo";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -359,6 +360,16 @@ function Page() {
 
   return (
     <Curve>
+      {/* noindex: this route is a misspelling ("expereince"), is not linked from
+          the nav or footer, and renders the same paragraphData as the home
+          timeline. Indexing it would compete with the real pages for the same
+          content under a typo URL. Kept reachable so old links do not 404. */}
+      <SEO
+        title="Experience | Mann Gupta — AI Product Manager"
+        description="Roles and shipped outcomes across Acceltancy, WorkIndia, ITC Infotech, and independent client products."
+        url="https://gmannn.netlify.app/expereince"
+        noindex
+      />
       <div className="cursor-default page item relative   min-h-screen" style={{ minHeight: '100vh' }}>
         <Navbar />
         {/* Animated SVG Path */}

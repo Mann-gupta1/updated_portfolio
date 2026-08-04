@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useLayoutEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { text, curve, translate } from "./anim";
 import styles from "./curve.module.css";
@@ -11,9 +11,10 @@ import { worksObj } from "@/assest/data/WorkObj";
 const routes = {
   "/": "Home",
   "/about-me": "About",
+  "/case-studies": "Case Studies",
   "/contact": "Contact",
   "/works": "Work",
-  "/expereince": "Expereince",
+  "/expereince": "Experience",
 };
 
 const anim = (variants) => {
@@ -49,7 +50,21 @@ export default function Curve({ children, backgroundColor }) {
     return routes[router.pathname] || "Page";
   };
 
-  // Get the current route
+  // useLayoutEffect for the FIRST measurement: this ran in useEffect, i.e. after
+  // the browser had already painted, so the transition SVG mounted a frame late and
+  // registered as a 0.667 layout shift (the single largest CLS contributor on the
+  // site). Measuring before paint means the element exists in the first frame.
+  // useEffect is kept for the resize listener, which must not block painting.
+  const useIsomorphicLayoutEffect =
+    typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
+  useIsomorphicLayoutEffect(() => {
+    setDimensions({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  }, []);
+
   useEffect(() => {
     function resize() {
       setDimensions({
@@ -57,7 +72,6 @@ export default function Curve({ children, backgroundColor }) {
         height: window.innerHeight,
       });
     }
-    resize();
     window.addEventListener("resize", resize);
     return () => {
       window.removeEventListener("resize", resize);

@@ -16,7 +16,7 @@ function SocialsLine() {
 
   return (
     <div className=" item flex flex-col text-white gap-3">
-      <h1 className="opacity-50 text-xs">SOCIALS</h1>
+      <h2 className="opacity-50 text-xs">SOCIALS</h2>
       <div className="flex gap-3">
         {socials.map((social, index) => (
           <a

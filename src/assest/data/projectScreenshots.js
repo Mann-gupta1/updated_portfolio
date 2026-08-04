@@ -3,7 +3,7 @@
 // Run "npm run dev" or "npm run build" so predev/prebuild copies from src/assest/project_screenshot to public.
 
 const base = '/project_screenshot/';
-const placeholder = base + 'project_placeholder.png';
+const placeholder = base + 'project_placeholder.jpg';
 
 /** Project slug -> array of image paths (first = hero). */
 export const projectScreenshots = {

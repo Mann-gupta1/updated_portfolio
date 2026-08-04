@@ -100,26 +100,33 @@ const WordAnimation = ({
         perspective: '1000px'
       }}
     >
-      {text.split(" ").map((word, index) => (
-        <span
-          key={index}
-          className="inline-block overflow-hidden"
-          style={{
-            lineHeight: lineHeight,
-            clipPath: "polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)",
-            marginRight: '0.3em'
-          }}
-        >
+      {/* Each word is wrapped for the reveal animation, but a REAL space is emitted
+          between wrappers. This previously used `marginRight: 0.3em` with the space
+          characters dropped: it looked spaced while the actual text content read
+          "Transformingideasintoexceptional..." — so copy-paste, screen readers, and
+          search engines all saw one giant unbroken word. The margin is gone because
+          the real space now provides the gap; keeping both would double it. */}
+      {text.split(" ").map((word, index, allWords) => (
+        <span key={index}>
           <span
-            ref={el => wordsRef.current[index] = el}
-            className="inline-block mb-[0.2rem]"
+            className="inline-block overflow-hidden"
             style={{
-              transformOrigin: 'center bottom',
-              transformStyle: 'preserve-3d'
+              lineHeight: lineHeight,
+              clipPath: "polygon(0 0%, 100% 0%, 100% 100%, 0% 100%)",
             }}
           >
-            {word}
+            <span
+              ref={el => wordsRef.current[index] = el}
+              className="inline-block mb-[0.2rem]"
+              style={{
+                transformOrigin: 'center bottom',
+                transformStyle: 'preserve-3d'
+              }}
+            >
+              {word}
+            </span>
           </span>
+          {index < allWords.length - 1 ? " " : null}
         </span>
       ))}
     </Tag>

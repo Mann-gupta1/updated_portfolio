@@ -9,8 +9,8 @@ import SlidingBars from "../componet/Home/SlidingBars";
 import Curve from "@/componet/UI/NavCurve";
 import Footer from "../componet/Footer/Footer";
 import SEO from "@/componet/SEO/Seo";
-import me from "../assest/Images/about/mannz-about-me.png";
 import ExperienceSection from "../sections/ExperienceSection";
+import PositioningSection from "../sections/PositioningSection";
 import ProjectsSequential from "../sections/ProjectsSequential";
 import ExperimentsSection from "../sections/ExperimentsSection";
 import TechStackSection from "../sections/TechStackSection";
@@ -25,10 +25,14 @@ const Home = () => {
   return (
     <Curve>
       <SEO
-        title="Mann Gupta | Portfolio"
-        description="Explore Mann Gupta's portfolio showcasing innovative software development projects, AI/ML solutions, and creative technical implementations."
-        image={me.src}
+        title="Mann Gupta | AI Product Manager"
+        description="AI Product Manager who owns products end to end: discovery, pricing, unit economics, and shipped software. Case studies in AI product strategy, market entry, and market microstructure."
+        // Deliberately not `me.src`: that was the about-me portrait, which Next
+        // hashes into /_next/static/... and which is not a 1200x630 share card.
+        // Omitting `image` uses the generated og-image.png default.
         url="https://gmannn.netlify.app/"
+        keywords="AI Product Manager, Product Manager, AI PM, LLM product, RAG, AI unit economics, pricing and packaging, product strategy, market entry, management consulting, market microstructure, Mann Gupta"
+        includePersonSchema
       />
       <div className="home cursor-default bg-main relative flex flex-col overflow-y-hidden h-full">
         {/* <CursorMask /> */}
@@ -40,6 +44,12 @@ const Home = () => {
         <AboutMe />
         </section>
         
+        {/* Positioning — sits directly after About so the role framing lands
+            before the timeline, which is what recruiters scan next. */}
+        <section id="positioning-section" className="relative section-separator">
+          <PositioningSection />
+        </section>
+
         {/* Experience Section */}
         <section id="experience-section" className="relative section-separator">
           <div className="w-full max-w-7xl mx-auto px-4">

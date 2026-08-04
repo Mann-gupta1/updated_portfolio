@@ -14,6 +14,7 @@ import SplitType from "split-type";
 import CustomEase from "gsap/dist/CustomEase";
 import Image from "next/image";
 import WordAnimation from "@/components/UI/WordAnimation";
+import SEO from "@/componet/SEO/Seo";
 
 function Index() {
   const imageRef = useRef(null);
@@ -22,50 +23,70 @@ function Index() {
 
   const Data = [
     {
-      skill: "Distributed Systems",
-      p: "I design and ship distributed backend systems with fault-tolerant execution, queue-based orchestration, and async processing. My focus is predictable behavior under load, safe retry strategies, and reliable runtime operations.",
+      skill: "AI Product Ownership",
+      p: "I own AI products from problem framing to shipped spec: user research, persona definition, and requirements engineering can build. I chose a confidence-gated LLM agent with human escalation over full automation to protect brand voice on high-intent conversations, and removed roughly 70% of manual reply volume.",
     },
     {
-      skill: "RAG & AI Platforms",
-      p: "I build production-oriented AI systems including semantic chunking, embedding pipelines, hybrid search, and LLM application workflows. I prioritize measurable quality improvements through retrieval relevance, latency optimization, and system-level observability.",
+      skill: "Pricing & Unit Economics",
+      p: "I model AI cost per user before launch rather than after the first invoice. I priced three revenue lines denominated in AI replies instead of tokens, with a bundled allowance and stackable top-ups, so gross margin per account stays flat as usage grows. I rejected bring-your-own-key after research showed the segment will not manage API credentials.",
     },
     {
-      skill: "Real-time SaaS Engineering",
-      p: "I architect multi-tenant SaaS products with strict RBAC boundaries, secure tenant data isolation, and real-time features like live classes and collaborative workflows. I own delivery end-to-end from architecture to production hardening.",
+      skill: "Strategy & Analysis",
+      p: "I write recommendations the way an engagement does: bottom-up market sizing, three-scenario P&L, CAC and payback modelling, and competitive benchmarking. Every call names the alternative I rejected and the one assumption that would reverse it.",
     },
   ];
 
+  // These must match the resume and the rest of the site exactly. This block used
+  // to claim "80% Workflow Automation" while the resume said 70% for the same work,
+  // and "100% Type-Safe Architecture", which is a tooling choice rather than an
+  // outcome. Mismatched numbers across a portfolio and CV are a credibility problem
+  // the moment an interviewer has both open.
   const impactMetrics = [
     {
-      number: "40%",
-      label: "Performance Improvement",
-      description: "Reduced AI response latency through optimized RAG retrieval and concurrency patterns",
+      number: "70%",
+      label: "Company Spend Cut",
+      description: "Audited every line item as budget owner, retired idle services, then held the new baseline",
     },
     {
-      number: "80%",
-      label: "Workflow Automation",
-      description: "Decreased manual lead processing time with background job automation",
+      number: "70%",
+      label: "Manual Work Removed",
+      description: "Confidence-gated LLM agent cut lead first-response from hours to seconds",
     },
     {
-      number: "10+",
-      label: "Production Applications",
-      description: "Successfully deployed and maintained across various industries",
+      number: "3",
+      label: "Products Owned 0 to 1",
+      description: "AI messaging platform, internal CRM, and a four-persona marketplace",
     },
     {
-      number: "100%",
-      label: "Type-Safe Architecture",
-      description: "End-to-end type safety with TypeScript, tRPC, and modern tooling",
+      number: "4.35%",
+      label: "Top on LeetCode",
+      description: "Globally, max rating 1976, across data structures, algorithms, and contests",
     },
   ];
 
+  // Product and strategy lead deliberately. The engineering stack stays below as
+  // supporting evidence, because "I can build it" is the differentiator against
+  // other PM candidates, not the headline.
   const techCategories = [
     {
-      category: "Cloud & Infrastructure",
-      techs: ["AWS (EKS, EC2, S3)", "Docker", "Kubernetes", "CI/CD", "Prometheus", "Grafana"],
+      category: "Product",
+      techs: ["Product Strategy", "Roadmapping", "Scope Definition", "Prioritisation", "PRD Writing", "Launch Planning", "Metrics Definition"],
+    },
+    {
+      category: "Pricing & Economics",
+      techs: ["Pricing and Packaging", "Unit Economics", "Token and Cost Economics", "Monetisation", "Willingness to Pay Research"],
+    },
+    {
+      category: "Strategy & Analysis",
+      techs: ["Structured Problem Solving", "Hypothesis-Driven Analysis", "Market Sizing (TAM/SAM/SOM)", "Market Entry", "Profitability Analysis", "Scenario P&L", "Porter's Five Forces", "Competitive Benchmarking"],
     },
     {
       category: "AI & Data",
-      techs: ["RAG Pipelines", "LangChain", "Embeddings", "Semantic Search", "pgvector", "Redis"],
+      techs: ["LLM Agents", "Human-in-the-Loop Design", "RAG Pipelines", "Embeddings", "Semantic Search", "LLM Evaluation & Observability", "pgvector"],
+    },
+    {
+      category: "Cloud & Infrastructure",
+      techs: ["AWS (EKS, EC2, S3)", "Docker", "Kubernetes", "CI/CD", "Prometheus", "Grafana"],
     },
     {
       category: "Backend Development",
@@ -134,18 +155,27 @@ function Index() {
 
   return (
     <Curve>
+      <SEO
+        title="About | Mann Gupta — AI Product Manager"
+        description="AI Product Manager owning products end to end: AI product ownership, pricing and unit economics, and strategy analysis. Cut company spend 70% and removed 70% of manual lead-response work."
+        url="https://gmannn.netlify.app/about-me"
+        keywords="AI Product Manager, product owner, pricing strategy, unit economics, market sizing, product strategy, Mann Gupta"
+      />
       <div className="aboutMe pb-44 overflow-hidden">
         <Navbar />
 
         {/* Hero Section */}
         <div className="item pt-20 px-[0.8rem] md:px-[2rem] flex md:flex-row gap-7 flex-col justify-between relative">
           <div className="pt-12 pb-7">
+            {/* tag="h1": the only H1s on this page were the three pillar cards
+                and the footer links, so there was no single primary heading. */}
             <WordAnimation
+              tag="h1"
               className="works-title text-5xl md:text-6xl lg:text-8xl font-cabinetGrotesk leading-tight text-black"
               stagger={0.05}
               delay={1}
               once={true}
-              text="About Me"
+              text="AI Product Manager"
             />
 
             <div className="text-lg md:text-xl text-gray-600 leading-relaxed font-cabinetGrotesk max-w-5xl mt-6">
@@ -153,7 +183,7 @@ function Index() {
                 delay={1}
                 stagger={0.01}
                 once={true}
-                text="Backend and AI engineer delivering systems end-to-end: from workflow engines and retrieval-based AI platforms to real-time multi-tenant SaaS. I focus on production reliability, performance, and measurable business outcomes."
+                text="AI Product Manager owning products end to end: discovery, pricing, scope, and the shipped software. Founding product owner across three products, with every call backed by a number and the assumption that would reverse it."
               />
             </div>
           </div>
@@ -169,7 +199,7 @@ function Index() {
               once={true}
               stagger={0.01}
               className="w-full"
-              text="I build backend-heavy products that need to run reliably at scale. My work includes distributed DAG execution, semantic retrieval systems for large document corpora, and secure multi-tenant product architectures."
+              text="I am an AI product manager who owns products end to end. I write the spec, price the tier, model the AI cost per user, and then ship it, which is why my roadmaps land with engineering instead of arriving as wishes."
             />
             <br />
             <br />
@@ -178,7 +208,7 @@ function Index() {
               stagger={0.01}
               delay={0.2}
               className="w-full"
-              text="I have owned production systems in fast-moving environments, including EKS migration for 15+ microservices, autoscaling initiatives that reduced cloud spend by ~50%, and observability setups that improved incident response speed."
+              text="As a founding team member at Acceltancy I own roadmap, pricing, and launch scope across three products. I cut company cloud and vendor spend by 70% as budget owner, and removed roughly 70% of manual lead-response work with a human-in-the-loop LLM agent."
             />
             <br />
             <br />
@@ -187,9 +217,13 @@ function Index() {
               stagger={0.01}
               delay={0.4}
               className="w-full"
-              text="I work comfortably across backend systems, AI integrations, and infrastructure operations. The goal is always the same: ship robust products with clear technical quality and measurable user impact."
+              text="Before that I shipped production systems at WorkIndia and ITC Infotech, so I know what an estimate costs. The goal is always the same: a decision with a number behind it, and the one assumption that would reverse it stated out loud."
             />
           </div>
+          {/* blurDataURL is an inline data URI, not "/path-to-small-blurry-image.jpg" —
+              that was a leftover placeholder path that 404'd on every visit to this
+              page. A 1x1 grey pixel is all a blur placeholder needs, and inlining it
+              costs no request. */}
           <div className="relative overflow-hidden h-[60vh] md:h-[100vh] object-cover w-full md:w-[50%] rounded-md">
             <Image
               src={ana.src}
@@ -198,8 +232,9 @@ function Index() {
               layout="fill"
               objectFit="cover"
               className="scale-125 absolute top-0 right-0 w-full h-full"
+              alt="Mann Gupta, AI Product Manager"
               placeholder="blur"
-              blurDataURL="/path-to-small-blurry-image.jpg"
+              blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNkOWQ5ZDkiLz48L3N2Zz4="
             />
           </div>
         </div>
@@ -212,7 +247,8 @@ function Index() {
                 0{index + 1}
                 <GrayLine />
               </div>
-              <h1 className="md:text-[1.5rem] text-[1.3rem] font-cabinetGrotesk font-semibold">
+              {/* h2, not h1: these are the three pillars beneath the page title. */}
+              <h2 className="md:text-[1.5rem] text-[1.3rem] font-cabinetGrotesk font-semibold">
                 <WordAnimation
                   className="md:text-[1.5rem] text-[1.3rem] font-cabinetGrotesk font-semibold"
                   delay={0.01}
@@ -220,7 +256,7 @@ function Index() {
                   stagger={0.01}
                   text={item.skill}
                 />
-              </h1>
+              </h2>
               <WordAnimation
                 className="text-base md:text-lg text-gray-600 leading-relaxed font-cabinetGrotesk"
                 delay={0.01}
@@ -232,8 +268,11 @@ function Index() {
           ))}
         </div>
 
-        {/* Impact Metrics Section */}
-        {/* <div className="stats-section pt-[5rem] md:pt-[12rem] md:px-[2rem] px-[1rem]">
+        {/* Impact Metrics Section — was commented out, so the four strongest
+            numbers on the page never rendered. Re-enabled now that they match the
+            resume exactly. The old subheading ("delivered measurable results that
+            matter") was filler; replaced with what a reviewer actually wants to know. */}
+        <div className="stats-section pt-[5rem] md:pt-[12rem] md:px-[2rem] px-[1rem]">
           <div className="text-center mb-16">
             <WordAnimation
               className="text-2xl md:text-4xl font-cabinetGrotesk font-bold text-black mb-4"
@@ -245,38 +284,34 @@ function Index() {
               className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-cabinetGrotesk"
               stagger={0.01}
               once={true}
-              text="Throughout my career, I've delivered measurable results that matter"
+              text="Four numbers I can walk you through line by line, including how they were measured."
             />
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {impactMetrics.map((metric, index) => (
+              /* Plain elements, not WordAnimation. Each WordAnimation builds a GSAP
+                 timeline plus a ScrollTrigger; 4 cards x 3 of them was 12 extra
+                 scroll listeners on this page alone and the single biggest reason
+                 total blocking time here hit 1,310 ms. A per-word reveal also adds
+                 nothing to a two-character number like "3". */
               <div
                 key={index}
                 className="bg-black text-white p-8 rounded-lg hover:scale-105 transition-transform duration-300 opacity-100"
               >
-                <WordAnimation
-                  className="text-5xl md:text-6xl font-bold font-cabinetGrotesk mb-3"
-                  stagger={0.05}
-                  once={true}
-                  text={metric.number}
-                />
-                <WordAnimation
-                  className="text-xl font-semibold mb-3 font-cabinetGrotesk"
-                  stagger={0.02}
-                  once={true}
-                  text={metric.label}
-                />
-                <WordAnimation
-                  className="text-sm text-gray-300 font-cabinetGrotesk leading-relaxed"
-                  stagger={0.01}
-                  once={true}
-                  text={metric.description}
-                />
+                <p className="text-5xl md:text-6xl font-bold font-cabinetGrotesk mb-3 tabular-nums">
+                  {metric.number}
+                </p>
+                <p className="text-xl font-semibold mb-3 font-cabinetGrotesk">
+                  {metric.label}
+                </p>
+                <p className="text-sm text-gray-200 font-cabinetGrotesk leading-relaxed">
+                  {metric.description}
+                </p>
               </div>
             ))}
           </div>
-        </div> */}
+        </div>
 
         {/* Technology Arsenal Section */}
         <div className="tech-section pt-[5rem] md:pt-[12rem] md:px-[2rem] px-[1rem]">
@@ -285,25 +320,24 @@ function Index() {
               className="text-2xl md:text-4xl font-cabinetGrotesk font-bold text-black mb-4"
               stagger={0.02}
               once={true}
-              text="Technology Arsenal"
+              text="Product, Strategy & Stack"
             />
             <WordAnimation
               className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-cabinetGrotesk"
               stagger={0.01}
               once={true}
-              text="A comprehensive toolkit for building modern, scalable applications"
+              text="Product and strategy lead here. The engineering stack sits below as supporting evidence, because being able to build it is the differentiator, not the headline."
             />
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {techCategories.map((category, index) => (
               <div key={index} className="tech-category opacity-100">
-                <WordAnimation
-                  className="text-2xl font-bold font-cabinetGrotesk mb-6 text-black"
-                  stagger={0.02}
-                  once={true}
-                  text={category.category}
-                />
+                {/* Plain h3: was a WordAnimation, i.e. one more ScrollTrigger per
+                    category (6 of them) for a two-word heading. */}
+                <h3 className="text-2xl font-bold font-cabinetGrotesk mb-6 text-black">
+                  {category.category}
+                </h3>
                 <div className="flex flex-wrap gap-3">
                   {category.techs.map((tech, techIndex) => (
                     <span

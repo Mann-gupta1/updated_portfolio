@@ -15,6 +15,7 @@ import emailjs from "@emailjs/browser";
 import { toast, ToastContainer } from "react-toastify"; // Importing Toastify
 import "react-toastify/dist/ReactToastify.css"; // Import default styles
 import LoadingBtn from "@/componet/UI/LoadingBtn.jsx";
+import SEO from "@/componet/SEO/Seo";
 
 // Zod schema for validation
 const schema = z.object({
@@ -109,18 +110,41 @@ const index = () => {
 
   return (
     <Curve>
+      <SEO
+        title="Contact | Mann Gupta — AI Product Manager"
+        description="Get in touch about AI product management, product strategy, or consulting roles. Email manngupta923@gmail.com."
+        url="https://gmannn.netlify.app/contact"
+      />
       <Navbar whiteLogo={true} style={"bg-sec text-white "} />
       <div className="  h-full  flex flex-col bg-sec text-white">
         <div className="font-righteous  flex justify-center items-center h-full      lg:px-10 px-[1rem] p-5">
           <div className="   lg:p-8 p-2 rounded-lg   lg:w-[60%] w-[99vw] h-full    ">
             <div className="lg:text-[3.6rem] text-[1.6rem]  font-righteous text-center font-semibold text-white flex flex-col gap-1">
+              {/* h1 on the first line: this page had no h1, only these two h2s and
+                  the footer's. Copy also changed from "Turn Your Ideas into Reality"
+                  (generic agency line) to something a hiring manager searches for. */}
               <div className="  overflow-hidden">
-                <h2 className=" word ">Let's Get in Touch and Turn</h2>
+                <h1 className=" word ">Hiring an AI Product Manager?</h1>
               </div>
               <div className="    pb-6  overflow-hidden ">
-                <h2 className=" word ">Your Ideas into Reality!</h2>
+                <h2 className=" word ">Let&apos;s talk.</h2>
               </div>
             </div>
+
+            {/* This page was 36 indexable words, which reads as a thin/doorway page
+                to a crawler and ranks for nothing. Real copy that also states what
+                roles are in scope. */}
+            <p className="font-cabinetGrotesk text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mx-auto text-center mb-10">
+              I am open to AI Product Manager and Product Manager roles, product
+              positions at quant and trading firms, and strategy consulting work. If you
+              want the detail first, the{" "}
+              <a href="/case-studies" className="text-white underline hover:no-underline">
+                case studies
+              </a>{" "}
+              cover pricing and unit economics, market entry, and market microstructure,
+              each with the recommendation and the assumption that would reverse it.
+              Fastest route is email; I reply within a day.
+            </p>
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="space-y-4 flex text-lg flex-col gap-5 text-white"
@@ -210,7 +234,7 @@ const index = () => {
         </div>
         <div className="  p-3 pb-5  lg:px-10 px-[1rem] flex lg:flex-row flex-col  justify-between  lg:items-center items-start lg:gap-0 gap-5">
           <span className=" item flex-col flex gap-1">
-            <h1 className=" opacity-50 text-xs ">LOCAL TIME</h1>
+            <h2 className=" opacity-50 text-xs ">LOCAL TIME</h2>
             {localTime}
           </span>
           <SocialsLine />

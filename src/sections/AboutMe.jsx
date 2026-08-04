@@ -149,35 +149,7 @@ function AboutMe() {
 
   return (
     <>
-      <style jsx>{`
-        .stat-label {
-          opacity: 0;
-        }
-        .word {
-          display: inline-block;
-          white-space: pre;
-        }
-        .text-container {
-          overflow: hidden;
-          clip-path: inset(0 0 0 0);
-        }
-        .word-wrapper {
-          display: inline-block;
-          overflow: hidden;
-          vertical-align: top;
-          margin-right: 0.5rem;
-        }
-        @media (min-width: 768px) {
-          .word-wrapper {
-            margin-right: 1rem;
-          }
-        }
-        @media (min-width: 1024px) {
-          .word-wrapper {
-            margin-right: 1.5rem;
-          }
-        }
-      `}</style>
+      {/* styles moved to src/styles/globals.css — see note there */}
       <div className="relative About-me flex flex-col items-center w-full duration-200 h-full text-white z-50 gap-[4rem] -mt-[2rem] bg-sec font-cabinetGrotesk ">
         <div className="overflow-hidden absolute left-[50%] lg:-top-[3rem] -top-[2rem] transform translate-x-[-50%] w-[100%] about_top_curve lg:h-[4rem] h-[2rem] mb-14 z-40">
           <div className="absolute right-[-10%] rounded-[50%] h-[150%] w-[120%] bg-sec"></div>
@@ -188,35 +160,37 @@ function AboutMe() {
           stagger={0.01}
           start="top center"
           end="bottom center"
-          text="I am a backend and AI engineer focused on production reliability and measurable product outcomes."
+          text="I am an AI product manager who owns products end to end: discovery, pricing, scope, and the shipped software."
         />
         <WordAnimation trigger=".About-me"
           className="text-white text-base md:text-lg lg:text-xl text-center max-w-4xl mx-auto px-4 mb-4"
           stagger={0.01}
           start="top 35%"
           end="bottom center"
-          text="I build end-to-end systems from distributed workflow engines and hybrid-search RAG pipelines to multi-tenant SaaS with real-time collaboration."
+          text="Because I ship every layer myself, my roadmaps land with engineering instead of arriving as wishes, and my cost models survive contact with production."
         />
         <WordAnimation trigger=".About-me"
           className="text-white text-base md:text-lg lg:text-xl text-center mb-12 max-w-4xl mx-auto px-4"
           stagger={0.01}
           start="top 30%"
           end="bottom center"
-          text="My work spans independent product delivery and production ownership at scale, with strong emphasis on secure architecture, performance, and operability."
+          text="Deepest on AI-native products: LLM agents, human-in-the-loop design, RAG retrieval, and the token economics that decide whether an AI feature is a business or a bill."
         />
 
         {/* Selected Impact */}
         <div className="mb-16 max-w-2xl mx-auto px-4">
-          <h3 className="text-white/90 text-sm font-medium uppercase tracking-wider mb-4 text-center">Selected Impact</h3>
+          <h2 className="text-white/90 text-sm font-medium uppercase tracking-wider mb-4 text-center">Selected Impact</h2>
           <ul className="text-white/95 text-base md:text-lg space-y-2 list-disc list-inside">
-            <li>Processed 100+ multimodal jobs/day through a distributed DAG workflow engine.</li>
-            <li>Improved query relevance by ~40% in a document intelligence platform using hybrid search.</li>
-            <li>Cut cloud spend by ~50% with Kubernetes autoscaling across production services.</li>
+            <li>Cut company cloud and vendor spend 70% as budget owner, then held the baseline.</li>
+            <li>Removed ~70% of manual lead-response work with a confidence-gated LLM agent.</li>
+            <li>Priced three revenue lines so margin per account stays flat as AI usage grows.</li>
+            <li>Held a 60–90 day launch window by cutting 7 features and deferring a full SaaS surface.</li>
           </ul>
         </div>
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
+          <ButtonNew text="Case Studies" link="/case-studies" />
           <ButtonNew text="About Me" link="/about-me" />
         </div>
 
@@ -302,13 +276,17 @@ function AboutMe() {
             <div className="max-w-[1400px] mx-auto relative z-[50]">
               {/* Header */}
               <div className="flex flex-col text-left items-center justify-center">
+                {/* Was: "Transforming ideas into exceptional digital experiences
+                    through expertise and innovation" — stock agency filler that
+                    said nothing and could sit on any portfolio on the internet.
+                    Replaced with the actual claim, which is a decision-making one. */}
                 <WordAnimation
                   className="text-sec text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-5xl  mb-8 sm:mb-12 leading-[1.1] lg:px-4 px-1 "
                   stagger={0.01}
                   delay={0.1}
                   start="top 90%"
                   end="bottom center"
-                  text="Transforming ideas into exceptional digital experiences through expertise and innovation"
+                  text="Five things I own on a product: the problem, the price, the scope, the number it moves, and the code that ships it."
                 />
               </div>
               <ServicesGrid />
@@ -330,8 +308,12 @@ function ServicesGrid() {
   const services = [
     {
       number: "01",
-      title: "Cloud & Infrastructure",
-      description: "Designing cloud-native systems with Kubernetes, autoscaling, and monitoring so services stay stable under load while keeping infrastructure costs controlled.",
+      title: "AI Product Strategy",
+      shortDesc: "Problem framing to shipped spec",
+      tags: ["Discovery", "PRD", "LLM agents"],
+      // Card height is fixed at 480px with overflow hidden, so descriptions have
+      // room for ~3 lines. Keep these under ~150 characters or they clip silently.
+      description: "Chose a confidence-gated LLM agent with human escalation over full automation to protect brand voice. Removed ~70% of manual reply volume.",
       icon: (
         <svg width="60" height="60" viewBox="0 0 64 64" fill="none" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
           <circle cx="18" cy="18" r="6" stroke="currentColor" strokeWidth="2.5" />
@@ -344,8 +326,12 @@ function ServicesGrid() {
     },
     {
       number: "02",
-      title: "AI / Machine Learning",
-      description: "Building practical AI systems including RAG pipelines, embedding search, and LLM applications with evaluation and observability for consistent production quality.",
+      title: "Pricing & Unit Economics",
+      shortDesc: "Margin that survives usage growth",
+      // Keep to 3 short tags: a 4th wraps to a second row on the 480px card and
+      // pushes the description into the clipped overflow.
+      tags: ["Packaging", "Metering", "Token economics"],
+      description: "Priced three revenue lines in AI replies, not tokens, with a bundled allowance and top-ups, so margin per account stays flat as usage grows.",
       icon: (
         <svg width="50" height="50" viewBox="0 0 64 64" fill="none" className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14">
           <rect x="10" y="10" width="44" height="44" rx="6" stroke="currentColor" strokeWidth="2.5" />
@@ -356,8 +342,10 @@ function ServicesGrid() {
     },
     {
       number: "03",
-      title: "Backend Development",
-      description: "Engineering robust backend services with async processing, queue orchestration, and secure data access patterns for scalable multi-user systems.",
+      title: "Scope & Prioritisation",
+      shortDesc: "Deciding what does not ship",
+      tags: ["Wedge strategy", "RICE", "Launch planning"],
+      description: "The harder half of a roadmap is the deletions. Cut 7 features and deferred a whole SaaS surface to hold a 60–90 day launch window.",
       icon: (
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="mt-2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
           <path d="M32 10L46 18V38L32 46L18 38V18L32 10Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -367,8 +355,10 @@ function ServicesGrid() {
     },
     {
       number: "04",
-      title: "Real-time Systems",
-      description: "Delivering real-time product experiences with WebRTC, signaling, reconnection handling, and resilient session management for consistent live collaboration.",
+      title: "Market & Financial Analysis",
+      shortDesc: "A recommendation with a number behind it",
+      tags: ["TAM/SAM/SOM", "Scenario P&L", "CAC/payback"],
+      description: "Bottom-up sizing and three-scenario P&L, written executive-summary first: the call, the two numbers behind it, and the assumption that reverses it.",
       icon: (
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="ml-2 mt-2 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
           <path d="M12 18L22 12L32 18L42 12V38L32 44L22 38L12 44V18Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -378,8 +368,10 @@ function ServicesGrid() {
     },
     {
       number: "05",
-      title: "Product Engineering",
-      description: "Owning products end-to-end from architecture to delivery, with focus on tenant safety, authorization boundaries, analytics, and business-facing reporting workflows.",
+      title: "Technical Depth",
+      shortDesc: "Why my roadmaps land with engineering",
+      tags: ["RAG", "Kubernetes", "Cost modelling"],
+      description: "I ship every layer, so cost models survive production. Cut runtime 40% by parallelising instead of buying a faster model; spend 50–70% by measuring first.",
       icon: (
         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16">
           <path d="M32 10L42 16V28L32 34L22 28V16L32 10Z" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -536,7 +528,7 @@ function ServiceCard({ service, index, isHovered, onHover, onLeave, cardRef, isL
           </h3>
 
           {/* Short Description */}
-          <p className="text-sec/50 text-sm sm:text-base md:text-lg mb-4 sm:mb-6">
+          <p className="text-sec/75 text-sm sm:text-base md:text-lg mb-4 sm:mb-6">
             {service.shortDesc}
           </p>
 
@@ -550,8 +542,8 @@ function ServiceCard({ service, index, isHovered, onHover, onLeave, cardRef, isL
                   text-xs sm:text-sm rounded-full
                   transition-all duration-300
                   ${isCardHovered
-                    ? 'bg-thr/20 text-thr border border-thr/30'
-                    : 'bg-sec/5 text-sec/60 border border-sec/10'
+                    ? 'bg-thr/30 text-sec border border-sec/30'
+                    : 'bg-sec/5 text-sec/80 border border-sec/20'
                   }
                 `}
               >
@@ -562,7 +554,7 @@ function ServiceCard({ service, index, isHovered, onHover, onLeave, cardRef, isL
 
           {/* Expanded Content */}
           <div className="pt-4 sm:pt-6 border-t border-sec/10">
-            <p className="text-sec/70 text-sm sm:text-base md:text-lg leading-relaxed">
+            <p className="text-sec/80 text-sm sm:text-base md:text-lg leading-relaxed">
               {service.description}
             </p>
           </div>

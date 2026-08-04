@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import LogoWithText from "../UI/LogoWithText";
 import Curve from "../Home/Works/Curve";
 import Link from "next/link";
@@ -11,14 +11,58 @@ import Magnetic from "../../componet/gsap/Magnetic";
 import FlipLink from "../UI/FlipLink";
 import ButtonEffect from "../UI/ButtonEffect";
 import useLocalTime from "@/Hooks/useLocalTime";
-import BallsModal, { ShuffleModals } from "../BallsModal";
-import Spline from "@splinetool/react-spline";
+// BallsModal import removed: its only usage (<ShuffleModals />) is inside a JSX
+// comment further down this file, but the import still pulled @react-three/rapier
+// into the bundle — a 2 MB physics engine downloaded on every page for markup that
+// never renders. Re-add the import if the balls are ever switched back on.
+import dynamic from "next/dynamic";
+import { links } from "@/assest/data/profile";
+
+// Spline pulls in three.js and its runtime: measured at ~4 MB of JS plus a 971 KB
+// scene file, and the Footer is on EVERY page, so every route paid that cost up
+// front. Lighthouse performance was 0 with LCP at 51.6s.
+// Now: no SSR, and the chunk is only requested once the footer is near the
+// viewport (see the IntersectionObserver below), so it never blocks first paint.
+// Dynamic-imports our own wrapper rather than the package directly: the package is
+// ESM-only, so importing it through next/dynamic breaks the server build. See
+// src/componet/SplineScene.jsx for the detail.
+const SplineScene = dynamic(() => import("../SplineScene"), {
+  ssr: false,
+  loading: () => null,
+});
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Footer() {
   const nameRef = useRef(null);
   const localTime = useLocalTime();
+  const splineHostRef = useRef(null);
+  const [showSpline, setShowSpline] = useState(false);
+
+  // Only mount the 3D scene once the footer is genuinely approaching the viewport.
+  // rootMargin gives it a head start so it is usually ready by the time it is seen.
+  useEffect(() => {
+    const host = splineHostRef.current;
+    if (!host || showSpline) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      setShowSpline(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShowSpline(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "600px" }
+    );
+
+    observer.observe(host);
+    return () => observer.disconnect();
+  }, [showSpline]);
 
   const Links = [
     {
@@ -27,6 +71,10 @@ function Footer() {
         {
           text: "Home",
           link: "/",
+        },
+        {
+          text: "Case Studies",
+          link: "/case-studies",
         },
         {
           text: "Work",
@@ -50,23 +98,28 @@ function Footer() {
       title: "CONTACT",
       links: [
         {
-          text: "Email — manngupta923@gmail.com",
-          link: "mailto:manngupta923@gmail.com",
+          text: `Email — ${links.email}`,
+          link: `mailto:${links.email}`,
           isSocaial: true,
         },
         {
-          text: "GitHub — github.com/Mann-gupta1",
-          link: "https://github.com/Mann-gupta1",
+          text: "LinkedIn — /in/gupta-mann",
+          link: links.linkedin,
           isSocaial: true,
         },
         {
-          text: "Portfolio — gmannn.netlify.app",
-          link: "https://gmannn.netlify.app",
+          text: "Medium — @guptamann",
+          link: links.medium,
           isSocaial: true,
         },
         {
-          text: "LinkedIn",
-          link: "https://linkedin.com/in/gupta-mann",
+          text: "X — @_guptamann_",
+          link: links.x,
+          isSocaial: true,
+        },
+        {
+          text: "GitHub — /Mann-gupta1",
+          link: links.github,
           isSocaial: true,
         },
       ],
@@ -230,10 +283,13 @@ function Footer() {
             <div className="lg:text-lg z-50 flex flex-wrap lg:gap-10 gap-4 sm:gap-6 md:gap-8 w-full sm:w-auto">
               {Links.map((item, index) => (
                 <div key={index} className="flex flex-col gap-2 min-w-[100px] sm:min-w-0">
+                  {/* h2, not h1. Every label and link in this footer used to be an
+                      <h1>, which gave each page 15+ H1s and destroyed the heading
+                      hierarchy a crawler uses to work out what a page is about. */}
                   <div className="overflow-hidden">
-                    <h1 className="Footertext opacity-50 text-xs sm:text-sm">
+                    <h2 className="Footertext opacity-50 text-xs sm:text-sm">
                       {item.title}
-                    </h1>
+                    </h2>
                   </div>
                   <div className="flex gap-1 flex-col leading-5 sm:leading-6">
                     {item.links?.map((linkItem, linkIndex) => (
@@ -243,9 +299,11 @@ function Footer() {
                           target={linkItem?.isSocaial ? "_blank" : ""}
                           rel="noopener noreferrer"
                         >
-                          <h1 className="Footertext text-[0.85rem] sm:text-[0.95rem] cursor-pointer hover:text-gray-400 text-gray-300 break-words">
+                          {/* py-1.5 gives every footer link a >=24px tap target
+                              (WCAG 2.2 target-size); they were ~19px tall rows. */}
+                          <span className="Footertext block py-1.5 text-[0.85rem] sm:text-[0.95rem] cursor-pointer hover:text-white text-gray-200 break-words">
                             <FlipLink>{linkItem.text}</FlipLink>
-                          </h1>
+                          </span>
                         </Link>
                       </div>
                     ))}
@@ -274,9 +332,10 @@ function Footer() {
                 }
               >
                 <a
-                  href="https://wa.me/916266725150"
+                  href={links.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="inline-flex items-center min-h-[28px] py-1"
                 >
                   +91 6266725150
                 </a>
@@ -289,8 +348,11 @@ function Footer() {
                   "bg-sec border-white lg:w-fit w-full sm:w-auto hover:border-0 border-[1px] text-white text-sm sm:text-base"
                 }
               >
-                <a href="mailto:manngupta923@gmail.com">
-                  manngupta923@gmail.com
+                <a
+                  href={`mailto:${links.email}`}
+                  className="inline-flex items-center min-h-[28px] py-1"
+                >
+                  {links.email}
                 </a>
               </ButtonEffect>
             </div>
@@ -301,24 +363,39 @@ function Footer() {
         <div className="flex flex-col items-center justify-center w-full relative min-h-[12rem] lg:min-h-[16rem]">
 
           {/* Keep original large robot size/placement while preserving visibility fix */}
-          <div className="hidden lg:block absolute -top-[15em] scale-90 translate-x-1/2 right-1/2 lg:w-[450px] lg:h-[450px] w-[300px] h-[300px] rounded-lg z-[35] pointer-events-none">
-            <Spline
-              scene="/scene%20(1).splinecode"
-              style={{ width: '100%', height: '100%' }}
-            />
+          <div
+            ref={splineHostRef}
+            className="hidden lg:block absolute -top-[15em] scale-90 translate-x-1/2 right-1/2 lg:w-[450px] lg:h-[450px] w-[300px] h-[300px] rounded-lg z-[35] pointer-events-none"
+          >
+            {showSpline && <SplineScene scene="/scene%20(1).splinecode" />}
           </div>
           <div className="relative z-[15] font-righteous leading-[6rem] sm:leading-[8rem] md:leading-[12rem] lg:leading-[28rem] text-[5rem] sm:text-[6rem] md:text-[10rem] lg:text-[30rem] flex flex-col text-center">
             {/* <div className="overflow-hidden mb-[1rem]">
               <h1 ref={nameRef} className="mann-text font-righteous ">MANN</h1>
             </div> */}
 
-            <h1 ref={nameRef} className="mann-text font-righteous -mb-[2rem] sm:-mb-[3rem] md:-mb-[4rem] lg:-mb-[5rem] flex overflow-hidden">
+            {/* Decorative wordmark, not a heading: it appears on every page, so as
+                an <h1> it competed with each page's real title. Letters are split
+                for the stagger animation, which a screen reader would announce as
+                "M A N N", hence aria-hidden with a label on the wrapper. */}
+            <div
+              ref={nameRef}
+              aria-label="Mann Gupta"
+              role="img"
+              className="mann-text font-righteous -mb-[2rem] sm:-mb-[3rem] md:-mb-[4rem] lg:-mb-[5rem] flex overflow-hidden"
+            >
               {text.split("").map((char, i) => (
-                <span key={i} className="char inline-block">
+                <span key={i} className="char inline-block" aria-hidden="true">
                   {char}
                 </span>
               ))}
-            </h1>
+            </div>
+            {/* The wordmark is the last thing a visitor sees, so it carries the
+                positioning rather than just the name. Kept small and letterspaced
+                so it reads as a caption and never competes with the MANN letters. */}
+            <p className="Footertext font-cabinetGrotesk text-white/50 text-[0.6rem] sm:text-xs md:text-sm tracking-[0.35em] uppercase leading-none mt-2 md:mt-4 lg:mt-8">
+              AI Product Manager
+            </p>
           </div>
 
 

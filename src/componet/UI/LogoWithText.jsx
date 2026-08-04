@@ -1,53 +1,87 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-// Mann logos
-import whiteLogo from "../../assest/Images/logo&textWhite.png";
-import mannLogoBlackBig from "../../assest/Images/logo&textWhite.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function LogoWithText({ style , isBlack , scale }) {
+// Circular rotating badge.
+//
+// This used to render `logo&textWhite.png`, which had "SOFTWARE · DEVELOPER · MANN"
+// baked into the pixels — so the badge contradicted the AI Product Manager
+// positioning on every page and could not be changed without a design tool.
+// Rebuilt as SVG textPath: the text is now real, editable, selectable, and readable
+// by search engines, and the scroll-rotation behaviour is unchanged.
+// (The old cleanup called ScrollTrigger.getById(element), which never matched
+// anything — getById takes a string id — so the trigger leaked on unmount.)
+const BADGE_TEXT = "AI PRODUCT MANAGER · PRODUCT STRATEGY · ";
+
+function LogoWithText({ style, isBlack, scale }) {
   const logoRef = useRef(null);
 
   useEffect(() => {
     const element = logoRef.current;
+    if (!element) return;
 
-    gsap.to(element, {
-      rotation:150,
-      ease: "none",
-      scrollTrigger: {
-        trigger: element,
-        start: "top bottom", // when the top of the element hits the bottom of the viewport
-        end: "bottom top", // when the bottom of the element hits the top of the viewport
-        scrub: true, // smooth scrubbing, takes 1 second to catch up to the scrollbar
-        onUpdate: (self) => {
-          gsap.to(element, {
-            rotation: self.progress *150, // rotate based on the scroll progress
-            overwrite: 'auto'
-          });
-        },
+    const trigger = ScrollTrigger.create({
+      trigger: element,
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+      onUpdate: (self) => {
+        gsap.to(element, {
+          rotation: self.progress * 150,
+          overwrite: 'auto',
+        });
       },
     });
 
     return () => {
-      ScrollTrigger.getById(element)?.kill(); // Cleanup
+      trigger.kill();
     };
   }, []);
 
-  // Use Mann logo for black version if available, otherwise use logo&text files
-  const logoSrc = isBlack 
-    ? (mannLogoBlackBig?.src )
-    : whiteLogo.src;
+  const color = isBlack ? "#1E1E1E" : "#ffffff";
 
   return (
-    <img
+    <div
       ref={logoRef}
-      className={`${style} exp_item   z-50 w-[7rem] h-[7rem] `}
-      src={logoSrc}
-      alt="Mann Gupta Logo"
-    />
+      className={`${style} exp_item z-50 w-[7rem] h-[7rem]`}
+      role="img"
+      aria-label="Mann Gupta — AI Product Manager"
+    >
+      <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+        <defs>
+          {/* Circle the text rides on, drawn from the top going clockwise. */}
+          <path
+            id="badge-circle"
+            d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"
+            fill="none"
+          />
+        </defs>
+
+        <text
+          fill={color}
+          style={{ fontSize: '8.4px', letterSpacing: '0.1em', fontWeight: 600 }}
+        >
+          <textPath href="#badge-circle" startOffset="0%">
+            {BADGE_TEXT}
+          </textPath>
+        </text>
+
+        {/* Centre monogram */}
+        <circle cx="50" cy="50" r="19" fill={color} />
+        <text
+          x="50"
+          y="50"
+          textAnchor="middle"
+          dominantBaseline="central"
+          fill={isBlack ? "#ffffff" : "#1E1E1E"}
+          style={{ fontSize: '19px', fontWeight: 800 }}
+        >
+          M
+        </text>
+      </svg>
+    </div>
   );
 }
 

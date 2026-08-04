@@ -3,6 +3,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import styles from "./Loading.module.css";
 
+// Timings tightened from 400ms/greeting + 500ms tail (2.5s total) to 220ms + 180ms
+// (~1.3s). The splash gates the hero paragraph, which IS the LCP element, so every
+// millisecond here is a millisecond of Largest Contentful Paint. All five languages
+// are kept — this is a pacing change, not a content cut.
 const greetings = ["Hello", "नमस्ते", "Bonjour", "こんにちは", "مرحبا"];
 
 const Loading = ({ onComplete }) => {
@@ -19,7 +23,7 @@ const Loading = ({ onComplete }) => {
         }
         return (prevIndex + 1) % greetings.length;
       });
-    }, 400);
+    }, 220);
     return () => clearInterval(interval);
   }, []);
 
@@ -29,7 +33,7 @@ const Loading = ({ onComplete }) => {
       // Add a small delay before completing
       setTimeout(() => {
         onComplete();
-      }, 500);
+      }, 180);
     }
   }, [allGreetingsShown, onComplete]);
 
@@ -59,9 +63,13 @@ const Loading = ({ onComplete }) => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div ref={loadingContentRef} className={styles.loadingContent}>
+      {/* Not an <h1>: this greeting renders on every route and, now that the page
+          renders underneath the overlay, it was showing up as the FIRST heading in
+          the document — so /case-studies advertised its H1 as "Hello". Also hidden
+          from assistive tech, since it is a decorative splash. */}
+      <div ref={loadingContentRef} className={styles.loadingContent} aria-hidden="true">
         <div className={styles.greeting}>
-          <motion.h1
+          <motion.div
             key={greetings[currentGreetingIndex]}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -69,7 +77,7 @@ const Loading = ({ onComplete }) => {
             transition={{ duration: 0.4 }}
           >
             {greetings[currentGreetingIndex]}
-          </motion.h1>
+          </motion.div>
         </div>
       </div>
     </motion.div>

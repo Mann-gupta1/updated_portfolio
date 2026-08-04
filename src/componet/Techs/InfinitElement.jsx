@@ -28,7 +28,9 @@ function InfinitElement({ data, x }) {
 function Item({ tech, index   }) {
   return (
     <div key={index} className="flex items-center  whitespace-nowrap rounded-full p-2   ">
-      <h1 className=" flex  gap-4 items-center">
+      {/* span, not h1: this renders once per tech in a marquee, so each one added
+          a page-level heading. */}
+      <span className=" flex  gap-4 items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -57,7 +59,7 @@ function Item({ tech, index   }) {
           />
         </svg>{" "}
         {tech.name}{" "}
-      </h1>
+      </span>
     </div>
   );
 }

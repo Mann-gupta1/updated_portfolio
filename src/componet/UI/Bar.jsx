@@ -61,12 +61,16 @@ function Bar({ derection, initial, deg }) {
   }, [derection]); // Add derection as a dependency
   
 
+  // Repositioned from engineer-framed lines ("Full-Stack Engineering Meets AI",
+  // "From Algorithms to Autonomous Agents") to the product/strategy claims this
+  // portfolio is now targeting. These scroll past every visitor, so they were
+  // quietly contradicting the AI Product Manager positioning everywhere else.
   const marqueeItems = [
-    "Research-Driven. Production-Ready.",
-    "AI with Systems-Level Thinking.",
-    "Complex Problems. Clean Solutions.",
-    "Full-Stack Engineering Meets AI",
-    "From Algorithms to Autonomous Agents",
+    "Spec. Price. Ship.",
+    "AI Products With Unit Economics.",
+    "Decisions With A Number Behind Them.",
+    "Strategy That Survives Production.",
+    "Every Call Names Its Rejected Alternative.",
   ];
 
   return (

@@ -46,19 +46,29 @@ export const curve = (initialPath, targetPath) => {
   };
 };
 
+// Animates `y` (transform), NOT `top`.
+//
+// This used to animate `top` from -300px to -100vh. `top` is a layout property, so
+// the browser treated every frame of the page-transition curve as the element
+// changing position — measured as a single 0.667 layout shift, which was by itself
+// most of the site's 1.33 CLS. Transforms are composited and never counted as CLS.
+//
+// The element keeps its static `top: -300px` from the inline style in NavCurve, and
+// these values are the offsets RELATIVE to that, which is why enter is
+// "calc(-100vh + 300px)" rather than "-100vh".
 export const translate = {
   initial: {
-    top: "-300px",
+    y: 0,
   },
   enter: {
-    top: "-100vh",
+    y: "calc(-100vh + 300px)",
     transition: { duration: 0.75, delay: 0.35, ease: [0.76, 0, 0.24, 1] },
     transitionEnd: {
-      top: "100vh",
+      y: "calc(100vh + 300px)",
     },
   },
   exit: {
-    top: "-300px",
+    y: 0,
     transition: { duration: 0.75, ease: [0.76, 0, 0.24, 1] },
   },
 };

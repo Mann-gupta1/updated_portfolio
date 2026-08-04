@@ -20,7 +20,10 @@
 }
 
 /* Greeting Section */
-.greeting h1 {
+/* Selector covers the div the greeting now uses (it was an h1, which polluted
+   every page's heading outline) while keeping the old h1 working if reverted. */
+.greeting h1,
+.greeting > div {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   font-size: 3rem;

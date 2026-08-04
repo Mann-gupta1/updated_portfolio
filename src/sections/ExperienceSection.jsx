@@ -246,25 +246,7 @@ function ExperienceSection() {
 
   return (
     <div className="w-full">
-      <style jsx>{`
-        .experience-content,
-        .timeline-dot {
-          opacity: 0;
-        }
-        
-        .experience-content {
-          will-change: transform, opacity;
-        }
-        
-        .timeline-dot {
-          will-change: transform, opacity, scale;
-          transform-origin: center;
-        }
-
-        .timeline-progress {
-          transition: opacity 0.6s ease;
-        }
-      `}</style>
+      {/* styles moved to src/styles/globals.css — see note there */}
       
       <div
         ref={mainRef}
@@ -277,15 +259,15 @@ function ExperienceSection() {
         >
           {/* Header Section */}
           <div className="text-center mb-10 md:mb-16 lg:mb-20 max-w-4xl px-4">
-            <h4 className="experience-text-secondary lg:text-sm text-xs font-bold tracking-[0.3em] mb-4 md:mb-6 font-cabinetGrotesk" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>Experience & Technologies</h4>
-            <h3 className="lg:text-4xl text-2xl font-bold leading-tight mb-4 font-cabinetGrotesk">
+            <p className="experience-text-secondary lg:text-sm text-xs font-bold tracking-[0.3em] mb-4 md:mb-6 font-cabinetGrotesk" style={{ color: 'rgba(0, 0, 0, 0.6)' }}>Experience &amp; Technologies</p>
+            <h2 className="lg:text-4xl text-2xl font-bold leading-tight mb-4 font-cabinetGrotesk">
               <WordAnimation
                 text="Explore my journey and the technologies that define my craft."
                 className="experience-text font-cabinetGrotesk font-bold leading-tight mb-4 font-cabinetGrotesk"
                 stagger={0.015}
                 style={{ color: '#1E1E1E' }}
               />
-            </h3>
+            </h2>
           </div>
 
           {/* Experience Timeline — decorative rope SVG height matches timeline content (not fixed vh) */}
@@ -386,6 +368,47 @@ function ExperienceSection() {
                         text={exp.date}
                         style={{ color: index === paragraphData.length - 1 ? '#9CA3AF' : '#9CA3AF' }}
                       />
+
+                      {/* Metrics and the decision line are plain elements, not
+                          WordAnimation: they are the load-bearing content for a PM
+                          or consulting reader, and a per-word reveal on a scrubbed
+                          timeline can leave them mid-animation when someone scrolls
+                          fast. They fade with the parent card instead. */}
+                      {exp.metrics?.length > 0 && (
+                        <ul
+                          className={`list-none flex flex-wrap gap-x-8 gap-y-3 mt-6 ${
+                            isLeft ? 'justify-end' : 'justify-start'
+                          }`}
+                        >
+                          {exp.metrics.map((metric) => (
+                            <li key={metric.label}>
+                              <span
+                                className="block text-2xl md:text-3xl font-bold tabular-nums leading-none"
+                                style={{ color: exp.color }}
+                              >
+                                {metric.value}
+                              </span>
+                              <span className="experience-text-secondary block text-xs mt-1 opacity-70">
+                                {metric.label}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {exp.caseStudy?.decision && (
+                        <p
+                          className={`experience-text-secondary text-sm md:text-base leading-relaxed mt-6 max-w-xl ${
+                            isLeft ? 'ml-auto border-r-2 pr-4' : 'mr-auto border-l-2 pl-4'
+                          }`}
+                          style={{ borderColor: exp.color, color: '#9CA3AF' }}
+                        >
+                          <span className="block text-[0.65rem] uppercase tracking-[0.2em] opacity-60 mb-1">
+                            The call
+                          </span>
+                          {exp.caseStudy.decision}
+                        </p>
+                      )}
                     </div>
                   </div>
                 );

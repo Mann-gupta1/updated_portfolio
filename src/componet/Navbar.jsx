@@ -20,6 +20,10 @@ function Navbar({style , whiteLogo}) {
       Link: "/about-me",
     },
     {
+      text: "Case Studies",
+      Link: "/case-studies",
+    },
+    {
       text: "Works",
       Link: "/works",
     },
@@ -53,7 +57,7 @@ function Navbar({style , whiteLogo}) {
                 <motion.div
                   className={`${
                     link.text === "Contact" ? "hidden" : ""
-                  } overflow-hidden cursor-pointer duration-150  text-lg `}
+                  } overflow-hidden cursor-pointer duration-150 text-lg py-2 px-1 min-h-[28px] flex items-center`}
                 >
                   <motion.div
                     variants={linkVariants}
