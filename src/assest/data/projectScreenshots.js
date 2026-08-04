@@ -1,17 +1,29 @@
-// Project screenshots: paths to files in public/project_screenshot/
-// Only 3 real screenshots kept: Medical, LLM Customer Support, Quillgpt. Rest use a shared placeholder.
-// Run "npm run dev" or "npm run build" so predev/prebuild copies from src/assest/project_screenshot to public.
+// Project slug -> screenshot paths (first entry is the hero image).
+//
+// Files live in public/project_screenshot/. The predev/prebuild step copies from
+// src/assest/project_screenshot, so add new images to BOTH or the build overwrites
+// public with the src copy.
+//
+// Two of these previously fell back to the grey placeholder even though usable
+// screenshots were sitting unused in the folder. Every slug in WorkObj.js should
+// have an entry here — a missing key renders a card with no image at all.
 
 const base = '/project_screenshot/';
 const placeholder = base + 'project_placeholder.jpg';
 
-/** Project slug -> array of image paths (first = hero). */
 export const projectScreenshots = {
-  'workable-dag-engine': [placeholder],
-  'edunexus-multi-tenant-saas': [placeholder],
+  // Acceltancy products
+  'leadline-ai-messaging': [base + 'LLM Customer Support Agent.jpg'],
+  'wedily-marketplace': [base + 'kanban_board_view.png'],
+  'acceltancy-crm': [base + 'project_analytics_dashboard.png'],
+
+  // Client and personal projects
   'document-intelligence-system': [base + 'chat with pdf analytics.png'],
   'aegistrace': [base + 'ai_agent_consensus_dashboard.png'],
+  'workable-dag-engine': [base + 'ai_agent_orchestration_&_control_dashboard.png'],
+  'edunexus-multi-tenant-saas': [base + 'vidyou_educational_feed_dashboard.png'],
   'kubewise': [base + 'advanced_sql_cost_analysis_tool.png'],
 };
 
+export { placeholder };
 export default projectScreenshots;

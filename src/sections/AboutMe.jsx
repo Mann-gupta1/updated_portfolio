@@ -6,17 +6,11 @@ import WordAnimation from "@/components/UI/WordAnimation";
 gsap.registerPlugin(ScrollTrigger);
 
 function AboutMe() {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const textRef = useRef(null);
-
-  // Story texts that will change on scroll
-  const storyTexts = [
-    { number: "01", text: "Hi, I'm Mann" },
-    { number: "02", text: "A Software Developer & AI/ML Developer" },
-    { number: "03", text: "Passionate about building intelligent solutions" },
-    { number: "04", text: "From healthcare AI to enterprise software" },
-    { number: "05", text: "Let's build something impactful together" }
-  ];
+  // Dead code removed: a `storyTexts` array (which still described Mann as
+  // "A Software Developer & AI/ML Developer"), a `splitTextIntoWords` helper, and
+  // the GSAP effect keyed on `currentTextIndex` that drove them. None were ever
+  // rendered — `storyTexts` and `splitTextIntoWords` each appeared exactly once in
+  // the file, at their own declaration.
 
   useEffect(() => {
     const storySection = document.getElementById('first-story-section');
@@ -112,40 +106,9 @@ function AboutMe() {
 
   }, []);
 
-  useEffect(() => {
-    if (textRef.current) {
-      const words = textRef.current.querySelectorAll('.word');
-
-      // Reset and animate each word
-      gsap.set(words, {
-        y: 100,
-        opacity: 0,
-      });
-
-      gsap.to(words, {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.05,
-        ease: 'power3.out',
-      });
-    }
-  }, [currentTextIndex]);
 
 
 
-
-
-  // Split text into words with wrapper for clip effect
-  const splitTextIntoWords = (text) => {
-    return text.split(' ').map((word, index) => (
-      <span key={index} className="word-wrapper">
-        <span className="word inline-block">
-          {word}
-        </span>
-      </span>
-    ));
-  };
 
   return (
     <>
