@@ -17,14 +17,39 @@ export const links = {
     "https://drive.google.com/file/d/1DjJ4okUG3J1l_Vl4p81bmwA8Ru_ThPnT/view",
 };
 
-// The three roles this portfolio is aimed at. Recruiters self-select: each one
-// should read their own job description back at them within two seconds.
+// The three role families this portfolio is aimed at, in priority order.
+// Recruiters self-select: each track should read their own job description back
+// at them within two seconds.
 //
-// Honesty rule: `proof` may only cite work actually done. The HFT track cites
-// latency/cost modelling, competitive-programming rank, and a microstructure
-// case study — it does NOT claim trading-desk experience. Claiming a desk you
-// have not sat on is the fastest way to fail a Citadel or Jane Street screen.
+// Honesty rule: `proof` may only cite work actually done. No claim here goes
+// beyond what is on the resume and defensible in an interview.
 export const positioning = [
+  {
+    id: "ai-engineer",
+    role: "AI / Backend Engineer",
+    claim:
+      "I ship production AI systems end to end, not demos that die in a notebook.",
+    detail:
+      "Built a production agentic LLM system with multi-step reasoning, tool calls into the CRM, and a confidence-gated guardrail that escalates to a human on low confidence. Also own a CRM backend at 40+ REST controllers, 100+ services, and 52 domain entities.",
+    proof: [
+      "70% of manual lead-response work removed by a production agentic LLM system",
+      "Multi-agent DAG orchestration engine running 100+ multimodal jobs/day, runtime cut 40%",
+      "Hybrid RAG retrieval over 1000+ page documents: +40% relevance, -35% latency",
+    ],
+  },
+  {
+    id: "fde",
+    role: "Forward Deployed Engineer",
+    claim:
+      "I sit with the customer, scope the ambiguity, and take the prototype all the way to production.",
+    detail:
+      "Three client products delivered end to end, discovery through production: a RAG retrieval platform, a multi-agent workflow runtime, and a multi-tenant learning SaaS. Each one started as a business problem, not a spec.",
+    proof: [
+      "Three client products scoped with the customer and shipped to production",
+      "LLM evaluation and observability built as a product surface (AegisTrace)",
+      "On-call for 3 weeks at WorkIndia: 100+ live alerts solo, runbooks the team adopted",
+    ],
+  },
   {
     id: "ai-pm",
     role: "AI Product Manager",
@@ -33,35 +58,9 @@ export const positioning = [
     detail:
       "Owned an LLM agent from problem framing to pricing: confidence-gated auto-reply with human escalation, per-reply metering, and margin that stays flat as usage grows.",
     proof: [
-      "70% of manual lead-response work removed by a human-in-the-loop LLM agent",
       "Three revenue lines priced and shipped, denominated in AI replies not tokens",
-      "LLM evaluation and observability built as a product surface (AegisTrace)",
-    ],
-  },
-  {
-    id: "hft-pm",
-    role: "Product Manager — HFT / Quant",
-    claim:
-      "Latency, cost, and edge decay are product constraints, and I model them before committing spend.",
-    detail:
-      "The instinct that transfers: measure where the time and money actually go before buying a faster anything. Cut runtime 40% by parallelising rather than upgrading model tier; cut infra spend 50-70% by auditing line by line.",
-    proof: [
-      "Top 4.35% on LeetCode globally, max rating 1976 — algorithms under time pressure",
-      "40% runtime cut chosen over a model upgrade, after measuring where latency lived",
-      "Market-microstructure case study: spread capture vs adverse selection, edge decay vs latency budget",
-    ],
-  },
-  {
-    id: "consulting",
-    role: "Strategy & Management Consulting",
-    claim:
-      "Structured problem solving with a number attached, and a named rejected alternative.",
-    detail:
-      "Every product call on this site is written as an engagement: problem, the alternatives scored, the recommendation, and the one assumption that would reverse it.",
-    proof: [
-      "Bottom-up market sizing, three-scenario P&L, and CAC/payback modelling",
-      "Rejected the highest-margin pricing option on adoption evidence, and documented why",
-      "Executive-summary-first writing: the call, the two numbers behind it, the reversing assumption",
+      "Rejected bring-your-own-key pricing on adoption evidence, and documented why",
+      "Cut 7 features and deferred a whole SaaS surface to hold a 60-90 day launch window",
     ],
   },
 ];
