@@ -4,8 +4,8 @@ import { useState } from "react";
 import { positioning, headlineMetrics } from "@/assest/data/profile";
 import ButtonNew from "@/componet/UI/ButtonNew";
 
-// Three target role families, one tab each. The point is self-selection: an AI PM
-// recruiter, a trading-firm recruiter, and a consulting recruiter are looking for
+// Three target role families, one tab each. The point is self-selection: an AI
+// engineering recruiter, an FDE recruiter, and an AI PM recruiter are looking for
 // different evidence, and a single generic blurb loses all three.
 //
 // Tabs (not three stacked columns) because the claim per role is a paragraph, and
