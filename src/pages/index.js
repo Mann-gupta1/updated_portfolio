@@ -25,8 +25,8 @@ const Home = () => {
   return (
     <Curve>
       <SEO
-        title="Mann Gupta | AI Product Manager"
-        description="AI Product Manager who owns products end to end: discovery, pricing, unit economics, and shipped software. Case studies in AI product strategy, market entry, and market microstructure."
+        title="Mann Gupta | AI Engineer & Full-Stack Freelancer"
+        description="AI engineer and full-stack developer. I build AI SaaS MVPs, LLM agents and fast Next.js websites. Open for freelance projects."
         // Deliberately not `me.src`: that was the about-me portrait, which Next
         // hashes into /_next/static/... and which is not a 1200x630 share card.
         // Omitting `image` uses the generated og-image.png default.

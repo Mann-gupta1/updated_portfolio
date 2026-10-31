@@ -12,6 +12,7 @@ const routes = {
   "/": "Home",
   "/about-me": "About",
   "/case-studies": "Case Studies",
+  "/hire": "Hire Me",
   "/contact": "Contact",
   "/works": "Work",
   "/expereince": "Experience",
