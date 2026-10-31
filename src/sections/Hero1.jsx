@@ -11,7 +11,8 @@ import { links } from "@/assest/data/profile";
 // Case Studies leads deliberately: it is the differentiator for AI PM and
 // consulting reviewers, and it is the only thing here they cannot skim from a CV.
 const heroButtons = [
-  { text: "Case Studies", link: "/case-studies", isPrimary: true },
+  { text: "Hire Me", link: "/hire", isPrimary: true },
+  { text: "Case Studies", link: "/case-studies" },
   { text: "Resume", link: links.resume },
   { text: "Medium", link: links.medium },
   { text: "GitHub", link: links.github },
@@ -78,14 +79,14 @@ function Hero1() {
         <div className=" flex flex-col  item lg:px-0  px-[1rem] text-black z-50 justify-center text-center max-w-3xl mx-auto ">
           <div style={{ clipPath: "polygon(0 0%, 100% 0%, 100% 100%, 0 100%)" }} className=" words overflow-hidden lg:leading-[3.5rem] md:leading-[2.8rem] leading-[2rem] ">
             <h1 ref={(el) => (textRefs.current[0] = el)} className="font-cabinetGrotesk text-[1.6rem] xs:text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4.5rem] pb-2 word">
-              AI Product Manager
+              AI Engineer &amp; Full-Stack Developer
             </h1>
           </div>
           <p className="item font-cabinetGrotesk text-base sm:text-lg md:text-xl text-black/80 mt-3 word">
-            I write the spec, price the tier, model the AI cost per user, and ship it.
+            I build AI products and fast websites, from spec to production.
           </p>
           <p className="item font-cabinetGrotesk text-sm sm:text-base text-black/70 mt-2 mb-8 word">
-            Founding product owner across three products. Cut company spend 70% and removed 70% of manual lead-response work with a human-in-the-loop LLM agent.
+            Founding engineer on three shipped products. Built an LLM agent that removed 70% of manual lead-response work. Open for freelance projects.
           </p>
           <motion.div
             className="item hero-buttons flex flex-wrap gap-3 sm:gap-4 justify-center word"

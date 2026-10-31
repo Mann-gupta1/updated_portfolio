@@ -20,6 +20,10 @@ function Navbar({style , whiteLogo}) {
       Link: "/about-me",
     },
     {
+      text: "Hire Me",
+      Link: "/hire",
+    },
+    {
       text: "Case Studies",
       Link: "/case-studies",
     },
