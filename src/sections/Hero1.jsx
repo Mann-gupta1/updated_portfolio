@@ -11,8 +11,7 @@ import { links } from "@/assest/data/profile";
 // Case Studies leads deliberately: it is the differentiator for AI PM and
 // consulting reviewers, and it is the only thing here they cannot skim from a CV.
 const heroButtons = [
-  { text: "Hire Me", link: "/hire", isPrimary: true },
-  { text: "Case Studies", link: "/case-studies" },
+  { text: "Case Studies", link: "/case-studies", isPrimary: true },
   { text: "Resume", link: links.resume },
   { text: "Medium", link: links.medium },
   { text: "GitHub", link: links.github },
@@ -86,7 +85,7 @@ function Hero1() {
             I build AI products and fast websites, from spec to production.
           </p>
           <p className="item font-cabinetGrotesk text-sm sm:text-base text-black/70 mt-2 mb-8 word">
-            Founding engineer on three shipped products. Built an LLM agent that removed 70% of manual lead-response work. Open for freelance projects.
+            Founding engineer on three shipped products. Built an LLM agent that removed 70% of manual lead-response work.
           </p>
           <motion.div
             className="item hero-buttons flex flex-wrap gap-3 sm:gap-4 justify-center word"
